@@ -440,6 +440,8 @@ div.navbar-nav {
     display: flex;
     justify-content: center;
     background-image: url("../images/fundo-de-forma-geometrica-gradiente_78532-307.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     margin-left: 0px;
     margin-right: 0px;
