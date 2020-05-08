@@ -307,6 +307,7 @@ div.navbar-nav {
       position: absolute;
     
     }
+   
 }
 .menu-pai{
     position: relative;
@@ -435,6 +436,13 @@ div.navbar-nav {
         width: auto;
         margin-left:20px ;
     }
+    #rede-sociais,h5{
+   
+        width: 100%;
+        display: inline-block;
+        font-size: 20px;
+    }
+   
 }
 #video-row{
     display: flex;
@@ -580,6 +588,7 @@ img.d-blockw-100 {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
    display: flex;
+   
    justify-content: center;
    align-items: center;
    text-align: center;
@@ -604,6 +613,7 @@ img.d-blockw-100 {
     display: inline-block;
     text-align: center;
     width: 90px;
+    font-size: 40px;
 }
 #video-row{
     display: flex;
@@ -617,4 +627,34 @@ img.d-blockw-100 {
 #video{
     width: auto;
     margin-left:20px ;
+}
+
+#rede-sociais h5{
+   
+    width: 100%;
+    display: inline-block;
+    font-size: 22px;
+}
+
+@media(max-width:600px){
+    #nav-footer {
+        list-style: none;
+        color: #fff;
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+   #nav-footer li{
+      
+       width: 35px;
+       height: 30px;
+       margin: 0;
+       font-size: 20px;
+   }
+   #rede-sociais h5{
+  
+   font-size: 15px;
+   margin-right: 70px;
+   }
 }
