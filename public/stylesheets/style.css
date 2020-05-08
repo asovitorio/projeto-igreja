@@ -331,10 +331,10 @@ div.navbar-nav {
 
 .foto-corpo {
     width: 100%;
-    height: 60vh;
+    height: 27vh;
     background-image: url('/images/oracao.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     display: flex;
@@ -343,10 +343,10 @@ div.navbar-nav {
 }
 .foto-corpo-sobre {
     width: 100%;
-    height: 60vh;
+    height: 27vh;
     background-image: url('/images/sobre.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     display: flex;
@@ -355,10 +355,10 @@ div.navbar-nav {
 }
 .foto-corpo-contato {
     width: 100%;
-    height: 60vh;
+    height: 27vh;
     background-image: url('/images/contato.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     display: flex;
@@ -390,28 +390,28 @@ div.navbar-nav {
 
     .foto-corpo {
         width: 100%;
-        height: 100px;
+        height: 50px;
         background-image: url('/images/oracao.jpg');
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
     .foto-corpo-sobre {
         width: 100%;
-        height: 100px;
+        height: 50px;
         background-image: url('/images/sobre.jpg');
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
     .foto-corpo-contato {
         width: 100%;
-        height: 100px;
+        height: 50px;
         background-image: url('/images/contato.png');
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
@@ -503,17 +503,17 @@ img.d-blockw-100 {
 }
 
 #imagem-texto1 {
-    margin-top: 20px;
+    
     margin-left: 20px;
     margin-right: 20px;
-    background-image: url('/images/slide1.jpg');
+    /* background-image: url('/images/slide1.jpg'); */
     width: 90%;
     height: 40%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: 0px 0px 8px black;
-    border-top: 20px solid #75c2db;
-    border-radius: 8px;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    /* box-shadow: 0px 0px 8px black;
+    border-top: 20px solid #75c2db; */
+    /* border-radius: 8px; */
 }
 
 #texto1 {
@@ -582,11 +582,11 @@ img.d-blockw-100 {
     top: -55px;
 }
 #rodape{
-    height: 150px;
+    height: 116px;
     background-color: #75C2DB;
     margin-top: 20px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    /* border-top-left-radius: 50px;
+    border-top-right-radius: 50px; */
    display: flex;
    
    justify-content: center;
@@ -653,8 +653,21 @@ img.d-blockw-100 {
        font-size: 20px;
    }
    #rede-sociais h5{
-  
+  margin-top: 15px;
    font-size: 15px;
-   margin-right: 70px;
+   /* margin-right: 70px; */
    }
+   #rodape{
+    height: 85px;
+    background-color: #75C2DB;
+    margin-top: 20px;
+    /* border-top-left-radius: 50px;
+    border-top-right-radius: 50px; */
+   display: flex;
+   
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+
+}
 }
