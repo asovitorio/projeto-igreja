@@ -16,30 +16,30 @@
             <div class="">
                 <div class="card-body" id="texto1">
                     <h2>Fale Conosco</h2>
-                    <form>
+                    <form action="/contato" method="post">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text" style="background-color:#75c2db; border: none; color: white;" id="basic-addon1"><i class='fas fa-user-circle' style='font-size:15px'></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Digite seu nome" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" name="nome" class="form-control" placeholder="Digite seu nome" aria-label="Username" aria-describedby="basic-addon1">
                           </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text" style="background-color:#75c2db; border: none; color: white;" id="basic-addon1"><i class='fas fa-at' style='font-size:15px'></i></span>
                             </div>
-                            <input type="email" class="form-control" placeholder="Digite o Email" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="email" name="email" class="form-control" placeholder="Digite o Email" aria-label="Username" aria-describedby="basic-addon1">
                           </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text" style="background-color:#75c2db; border: none; color: white;" id="basic-addon1"><i class='fas fa-phone' style='font-size:15px'></i></span>
                             </div>
-                            <input type="tel" class="form-control" placeholder="Digite o Telefone" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="tel" name="telefone" class="form-control" placeholder="Digite o Telefone" aria-label="Username" aria-describedby="basic-addon1">
                           </div>
                         
                           <div class="input-group">
                            
-                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                            <textarea name="msg" class="form-control" aria-label="With textarea"></textarea>
                           </div>
                           <br>
                         <button type="submit" class="btn btn-primary" style="background-color:#75c2db; border: none;">Enviar <i class='far fa-paper-plane' style='font-size:15px'></i></button>
