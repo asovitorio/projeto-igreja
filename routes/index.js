@@ -3,7 +3,7 @@ var router = express.Router();
 const pagesControllers=require('../controllers/pagesControllers')
 
 /* GET home page. */
-router.get('/',pagesControllers.index );
+router.get('/',pagesControllers.home );
 router.get('/home',pagesControllers.home );
 router.get('/sobre',pagesControllers.sobre );
 router.get('/contato',pagesControllers.contato );
