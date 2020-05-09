@@ -46,7 +46,7 @@ const pagesControllers = {
             classBody:"gradient",
             titulo:"Igreja Batista"
         }
-        res.render('contato',{nav:nav})
+        res.render('contato',{nav:nav,message:undefined})
     },
     sistema: (_req,res)=>{
         const nav = {
@@ -57,6 +57,7 @@ const pagesControllers = {
             sistema:"active",
             classBody:"home-body",
             titulo:"Igreja Batista"
+           
         }
         res.render('sistema',{nav:nav})
     },
@@ -69,7 +70,8 @@ const pagesControllers = {
             contato:"active",
             sistema:"",
             classBody:"gradient",
-            titulo:"Igreja Batista"
+            titulo:"Igreja Batista",
+           
         }
         let enviarEmail = {
             from:'asovitorio@gmail.com',
@@ -90,7 +92,7 @@ const pagesControllers = {
              }
          });
         
-         return res.render('contato', {msg:"Enviada com Sucesso! Obrigado...",nav:nav});
+         return res.render('contato',{nav:nav, message:"Enviada com Sucesso! Obrigado..."});
          
  
     }

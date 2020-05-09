@@ -2,21 +2,26 @@
 <%-include('./partials/nav.ejs')%>
 
 <main class="teste">
-    <div class="foto-corpo-contato"><img src="" alt="" width="70%"></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="">
-                <div class="card-body" id="">
-                    <img src="/images/contato2.jpg" id="" alt="" width="100%">
-                </div>
-            </div>
+  <div class="foto-corpo-contato"><img src="" alt="" width="70%"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="">
+        <div class="card-body" id="">
+          <img src="/images/contato2.jpg" id="" alt="" width="100%">
         </div>
-        <div class="col-sm-6">
-            <div class="">
-                <div class="card-body" id="texto1">
-                    <h2>Fale Conosco</h2>
-                    <form action="/contato" method="post">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="">
+        <div class="card-body" id="texto1">
+          <h2>Fale Conosco</h2>
+          <form action="/contato" method="post">
+            <% if(message != undefined){%>
+            <div class="alert alert-success" role="alert">
+              <%=message%>
+            </div>
+          <%}else{}%>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text" style="background-color:#75c2db; border: none; color: white;" id="basic-addon1"><i class='fas fa-user-circle' style='font-size:15px'></i></span>
