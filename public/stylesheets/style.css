@@ -346,6 +346,7 @@ div.navbar-nav {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    margin-left: 15px;
 }
 
 .foto-corpo-sobre {
@@ -359,6 +360,7 @@ div.navbar-nav {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    margin-left: 15px;
 }
 
 .foto-corpo-contato {
@@ -372,6 +374,7 @@ div.navbar-nav {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    margin-left: 15px;
 }
 
 
@@ -405,6 +408,7 @@ div.navbar-nav {
         background-size: contain;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
+        margin-left: 15px;
     }
 
     .foto-corpo-sobre {
@@ -415,6 +419,7 @@ div.navbar-nav {
         background-size: contain;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
+        margin-left: 15px;
     }
 
     .foto-corpo-contato {
@@ -425,6 +430,7 @@ div.navbar-nav {
         background-size: contain;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
+        
     }
 
     #imagem-texto1 {

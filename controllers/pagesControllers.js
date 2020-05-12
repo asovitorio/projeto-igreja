@@ -92,7 +92,7 @@ const pagesControllers = {
              }
          });
         
-         return res.render('contato',{nav:nav, message:"Enviada com Sucesso! Obrigado..."});
+         return res.render('contato',{nav:nav, message:"Obrigado, em breve entraremos em contato"});
          
  
     }
