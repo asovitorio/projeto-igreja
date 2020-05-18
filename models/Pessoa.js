@@ -53,5 +53,11 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         timestamps: true
     });
+    Pessoa.associate = (models) => {
+      Pessoa.hasOne(models.Usuario, {
+        foreignKey: "usuario_id",
+        as: "usuario",
+      });
+    };
     return Pessoa;
 };

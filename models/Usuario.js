@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       update_at: DataTypes.DATE,
 
     }, {
+      tableName:'produto',
       timestamps: true,
     }
   );

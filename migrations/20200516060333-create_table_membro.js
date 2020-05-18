@@ -2,54 +2,44 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-  
-      Example:
-      return queryInterface.createTable('usuarios', { 
+    
+      return queryInterface.createTable('membros', { 
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
           autoIncrement: true,
         },
-        email: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        senha: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        tipo: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        status: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        pessoa_id: {
+        pequeno_grupo_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           references:{
             model:{
-              tableName:'pessoas'
+              tableName:'pequeno_grupos'
             },
             key:'id'
           }
-
+        },
+        usuario_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references:{
+            model:{
+              tableName:'usuarios'
+            },
+            key:'id'
+          }
         },
         create_at: Sequelize.DATE,
         update_at: Sequelize.DATE,
-      
+
       });
-  
+   
   },
 
   down: (queryInterface, Sequelize) => {
    
-     
-
    
-      return queryInterface.dropTable('usuarios');
+      return queryInterface.dropTable('pequeno_grupo');
    
   }
 };
