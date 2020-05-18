@@ -1,7 +1,10 @@
 const systemControllers = {
 
-    index: (req,res) =>{
-        res.render('./system/menu.ejs');
+    index: (req, res) => {
+        res.render('./system/menu');
+    },
+    cadastroMenbroView: (req, res) => {
+        res.render('./system/pessoaLista');
     }
 
 }
