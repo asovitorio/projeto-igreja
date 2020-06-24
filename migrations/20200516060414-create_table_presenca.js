@@ -42,6 +42,7 @@ module.exports = {
         observacao:Sequelize.STRING,
         create_at: Sequelize.DATE,
         update_at: Sequelize.DATE,
+        delete_at: Sequelize.DATE,
       
       });
   

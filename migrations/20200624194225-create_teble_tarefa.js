@@ -2,40 +2,46 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-   
-      return queryInterface.createTable('oracoes', { 
+  
+      return queryInterface.createTable('tarefas',
+       {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
           autoIncrement: true,
         },
-        discriminacao:{
+        data:{
+        type: Sequelize.DATE,
+        allowNull: false,
+
+        },
+        status:{
         type: Sequelize.STRING,
         allowNull: false,
 
         },
-        prioridade:{
+        observacao:{
         type: Sequelize.STRING,
         allowNull: false,
 
         },
 
-        pessoa_id: {
+        grupos_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           references:{
             model:{
-              tableName:'pessoas'
+              tableName:'grupos'
             },
             key:'id'
           }
         },
-        pequeno_grupo_id: {
+       licoes_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           references:{
             model:{
-              tableName:'pequeno_grupos'
+              tableName:'licoes'
             },
             key:'id'
           }
@@ -43,12 +49,13 @@ module.exports = {
         create_at: Sequelize.DATE,
         update_at: Sequelize.DATE,
         delete_at: Sequelize.DATE,
-      });
-     },
+        });
+   
+  },
 
   down: (queryInterface, Sequelize) => {
+  
+      return queryInterface.dropTable('tarefas');
     
-      return queryInterface.dropTable('oracoes');
-   
   }
 };
