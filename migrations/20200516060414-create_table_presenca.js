@@ -9,6 +9,11 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
         },
+        data:{
+          type: Sequelize.DATE,
+          allowNull: false,
+            },
+        observacao:Sequelize.STRING,
         membro_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
@@ -19,27 +24,8 @@ module.exports = {
             key:'id'
           }
         },
-        membro_pessoa_id: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          references:{
-            model:{
-              tableName:'membros'
-            },
-            key:'id'
-          }
-        },
-        membro_pequeno_grupo_id: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          references:{
-            model:{
-              tableName:'membros'
-            },
-            key:'id'
-          }
-        },
-        observacao:Sequelize.STRING,
+      
+        
         create_at: Sequelize.DATE,
         update_at: Sequelize.DATE,
         delete_at: Sequelize.DATE,

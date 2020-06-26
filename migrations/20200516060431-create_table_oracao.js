@@ -35,7 +35,7 @@ module.exports = {
           allowNull: false,
           references:{
             model:{
-              tableName:'pequeno_grupos'
+              tableName:'grupos'
             },
             key:'id'
           }

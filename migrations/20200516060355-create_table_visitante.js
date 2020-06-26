@@ -9,6 +9,11 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
         },
+        data:{
+          type: Sequelize.DATE,
+          allowNull: false,
+  
+          },
         pessoa_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
@@ -19,8 +24,19 @@ module.exports = {
             key:'id'
           }
         },
+        grupos_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references:{
+            model:{
+              tableName:'grupos'
+            },
+            key:'id'
+          }
+        },
         create_at: Sequelize.DATE,
         update_at: Sequelize.DATE,
+        delete_at: Sequelize.DATE,
       });
  
   },

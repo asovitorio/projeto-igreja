@@ -227,3 +227,42 @@ div#v-pills-home .row{
 .card-body a:hover{
     background-color: #386e7f;
 }
+
+#local-peq-grupo {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgba(0, 0, 0, 0.055);
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0px 0px 8px black;
+}
+
+#card-local-peq-grupo {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    border: 3px solid #75c2db;
+    display: flex;
+    box-shadow: 0px 4px 8px black;
+
+}
+#box-local-peq-grupo {
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-top: 30px;
+
+
+
+}
+
+#img-local-peq-grupo {
+
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 3px solid #75c2db;
+    position: absolute;
+    top: -55px;
+}

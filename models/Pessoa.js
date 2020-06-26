@@ -49,9 +49,14 @@ module.exports = (sequelize, DataTypes) => {
           },
           create_at: Sequelize.DATE,
           update_at: Sequelize.DATE,
+          delete_at: Sequelize.DATE,
     
-    }, {
-        timestamps: true
+    },{
+      timestamps: true,
+      underscored: true,
+      paranoide:true,
+      tableName: 'pessoas'
+
     });
     Pessoa.associate = (models) => {
       Pessoa.hasOne(models.Usuario, {

@@ -9,12 +9,12 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
         },
-        pequeno_grupo_id: {
+        grupos_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           references:{
             model:{
-              tableName:'pequeno_grupos'
+              tableName:'grupos'
             },
             key:'id'
           }
@@ -31,6 +31,7 @@ module.exports = {
         },
         create_at: Sequelize.DATE,
         update_at: Sequelize.DATE,
+        delete_at: Sequelize.DATE,
 
       });
    

@@ -2,9 +2,6 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-
-
-
     return queryInterface.createTable('pessoas', {
       id: {
         type: Sequelize.INTEGER,
@@ -55,8 +52,7 @@ module.exports = {
       },
       create_at: Sequelize.DATE,
       update_at: Sequelize.DATE,
-
-
+      delete_at: Sequelize.DATE,
     });
 
   },

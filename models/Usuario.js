@@ -30,8 +30,11 @@ module.exports = (sequelize, DataTypes) => {
       update_at: DataTypes.DATE,
 
     }, {
-      tableName:'produto',
       timestamps: true,
+      underscored: true,
+      paranoide:true,
+      tableName: 'usuarios'
+      
     }
   );
   Usuario.associate = (models) => {

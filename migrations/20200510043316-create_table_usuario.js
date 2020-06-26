@@ -39,6 +39,7 @@ module.exports = {
         },
         create_at: Sequelize.DATE,
         update_at: Sequelize.DATE,
+        delete_at: Sequelize.DATE,
       
       });
   

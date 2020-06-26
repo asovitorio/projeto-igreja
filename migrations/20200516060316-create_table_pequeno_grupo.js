@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
    
-      return queryInterface.createTable('pequeno_grupos', {
+      return queryInterface.createTable('grupos', {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
@@ -31,12 +31,13 @@ module.exports = {
         },
         create_at: Sequelize.DATE,
         update_at: Sequelize.DATE,
+        delete_at: Sequelize.DATE,
       });
       
     
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('pequeno_grupos');
+    return queryInterface.dropTable('grupos');
   }
 };
