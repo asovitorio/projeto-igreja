@@ -19,12 +19,12 @@ module.exports = {
             key:'id'
           }
         },
-        usuario_id: {
+        pessoas_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
           references:{
             model:{
-              tableName:'usuarios'
+              tableName:'pessoas'
             },
             key:'id'
           }
