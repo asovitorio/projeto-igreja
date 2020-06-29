@@ -1,5 +1,4 @@
-
-<%-include('../partials/head-system.ejs')%> 
+<%-include('../partials/head-system.ejs')%>
 <main class="contaner">
     <label for="menu-sanduiche" id="label-sanduiche"> <i class="fas fa-list-alt"></i></label>
     <div class="main">
@@ -12,192 +11,368 @@
                 <label class="perfil-usuario" for=""><b> Pr. Luciano</b><br>Status: ADM</label>
                 <hr>
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
-                        role="tab" aria-controls="v-pills-home" aria-selected="true"> <i class='fas fa-user-cog'
-                            style='font-size:15px'> Cadastros</i></a>
-                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
-                        role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class='fas fa-users'
+                    <a class="nav-link active" id="" data-toggle="pill" href="#v-pills-home" role="tab"
+                        aria-controls="v-pills-home" aria-selected="true"> <i class='fas fa-user-cog'
+                            style='font-size:15px'> Usuários</i></a>
+                    <a class="nav-link" id="menu-peq-grupo" data-toggle="pill" href="#v-pills-profile" role="tab"
+                        aria-controls="v-pills-profile" aria-selected="false"><i class='fas fa-users'
                             style='font-size:15px'> P. Grupos</i></a>
-                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
-                        role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class='fas fa-pray'
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                        aria-controls="v-pills-messages" aria-selected="false"><i class='fas fa-pray'
                             style='font-size:15px'> Relatorio</i></a>
-                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
-                        role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class='fas fa-bible'
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+                        aria-controls="v-pills-settings" aria-selected="false"><i class='fas fa-bible'
                             style='font-size:15px'> Lições</i></a>
                 </div>
-
+                <div id="btn-add-usuario" class="btn-add-peq-grupo"><button type="button" data-toggle="modal"
+                        data-target="#modal-add-usuario"><i class='fas fa-user-plus'></i></button></div>
+                <div id="btn-add-peq-grupo" class="btn-add-peq-grupo"><button type="button" data-toggle="modal"
+                        data-target="#modal-add-peq-grupo"><i class='fas fa-users'><b>+</b></i></button></div>
             </nav>
         </aside>
         <article class="" id="corpo">
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                     aria-labelledby="v-pills-home-tab">
-                    <div class="corpo-titulo"><i class='fas fa-user-cog' style='font-size:24px'> Cadastros</i></div>
+                    <div class="corpo-titulo"><i class='fas fa-user-cog' style='font-size:24px'> Usuários</i></div>
                     <br>
                     <div class="row">
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
+                        <div class="col-sm-12">
+                            <table class="table table-striped" id="tabelas">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Nome</th>
+                                        <th class="col-email" scope="col">Email</th>
+                                        <th scope="col">Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="img-table">
+                                            <div id="avatar-tabela"><img src="/images/pastor.jpg" width="40px" alt="">
+                                            </div>
+                                        </th>
+                                        <td>Pastor Luciano</td>
+                                        <td class="col-email">pr.luciano@gmail.com</td>
+                                        <td>
+                                            <span class="badge badge-info" style="padding: 2px;">ADM
+                                                <span class="badge badge-light">
+                                                    <i class='fas fa-pencil-alt  text-primary'
+                                                        style='font-size:17px'></i>
+                                                    <i class='far fa-trash-alt text-secondary'
+                                                        style='font-size:20px'></i>
+                                                </span>
+                                            </span>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="img-table">
+                                            <div id="avatar-tabela"><img src="/images/IMG_20180411_111301015~3.jpg"
+                                                    width="40px" alt="">
+                                            </div>
+                                        </th>
+                                        <td>Alessandro Barbosa Vitorio</td>
+                                        <td class="col-email">asovitorio@gmail.com</td>
+                                        <td> <span class="badge badge-dark" style="padding: 2px;">USER
+                                                <span class="badge badge-light">
+                                                    <i class='fas fa-pencil-alt  text-primary'
+                                                        style='font-size:17px'></i>
+                                                    <i class='far fa-trash-alt text-secondary'
+                                                        style='font-size:20px'></i>
+                                                </span>
+                                            </span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="img-table">
+                                            <div id="avatar-tabela"><img src="/images/avatar.png" width="40px" alt="">
+                                            </div>
+                                        </th>
+                                        <td>Alessandro Barbosa Vitorio</td>
+                                        <td class="col-email">asovitorio@gmail.com</td>
+                                        <td> <span class="badge badge-dark" style="padding: 2px;">USER
+                                                <span class="badge badge-light">
+                                                    <i class='fas fa-pencil-alt  text-primary'
+                                                        style='font-size:17px'></i>
+                                                    <i class='far fa-trash-alt text-secondary'
+                                                        style='font-size:20px'></i>
+                                                </span>
+                                            </span></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <!-- <div class="card">
+                                <div class="card-header"><i class='far fa-address-book' style='font-size:30px'><b
+                                            style="font-size: 25px;"> Participante</b></i></div>
                                 <div class="card-body">
-                                    <p class="card-text">Membro são pessoas que estão frequentando um pequeno grupo de forma  </p>
+                                    <p class="card-text">São pessoas que estão frequentando um pequeno grupo de forma
+                                        permanente. </p>
                                     <a href="/system/membro" class="btn btn-primary">Entrar</a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                             <div class="card">
                                 <div class="card-header"><i class='fas fa-user-circle' style='font-size:36px'><b
                                             style="font-size: 25px;"> Usuario</b></i></div>
                                 <div class="card-body">
-                                    <p class="card-text">Usuários são membros que estão habilitados à utilizar o sistema</p>
+                                    <p class="card-text">Usuários são participantes de um pequeno grupo que estão
+                                        habilitados à utilizar o sistema </p>
                                     <a href="#" class="btn btn-primary">Entrar</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-3">
+                        </div> -->
+                        <!-- <div class="col-sm-3">
                             <div class="card">
                                 <div class="card-header"><i class='fas fa-user-friends' style='font-size:36px'><b
                                             style="font-size: 25px;"> Visitas</b></i></div>
                                 <div class="card-body">
-                                    <p class="card-text">Visitas são pessoas que estão frequentando um pequeno grupo de forma esporádica.
+                                    <p class="card-text">Visitas são pessoas que estão frequentando um pequeno grupo de
+                                        forma esporádica.
                                     </p>
                                     <a href="#" class="btn btn-primary">Entrar</a>
                                 </div>
                             </div>
-                        </div>
-                       
+                        </div> -->
+
                     </div>
                 </div>
                 <!-- grupo -->
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                    aria-labelledby="v-pills-profile-tab">
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <div class="corpo-titulo"><i class='fas fa-users' style='font-size:24px'> P. Grupos</i></div>
                     <br>
                     <div class="col-sm-3">
                         <div class="card" id="card-local-peq-grupo">
-                            <div id="box-local-peq-grupo"> <img src="/images/IMG_20180411_111301015~3.jpg" class="card-img"
-                                    id="img-local-peq-grupo" alt="..."></div>
+                            <div id="box-local-peq-grupo"> <img src="/images/IMG_20180411_111301015~3.jpg"
+                                    class="card-img" id="img-local-peq-grupo" alt="..."></div>
                             <div class="card-body">
                                 <h5 class="card-title">Conexão Desus é Amor</h5>
                                 <p class="card-text"><b>Alessandro Barbosa Vitorio</b></p>
                                 <p class="card-text">Fone: (11) 95496-5202</p>
                                 <p class="card-text">Bairro: Jd. Ipê</p>
-            
+
                             </div>
+                            <a href="#" class="btn btn-primary btn-card">Entrar</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- relat -->
 
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
-                    aria-labelledby="v-pills-messages-tab">
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                     <div class="corpo-titulo"><i class='fas fa-pray' style='font-size:24px'> Relatorio</i></div>
                     <br>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Cadastro de membro que estão frequentando umpequeno grupo
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Cadastro de membro que estão frequentando umpequeno grupo
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Cadastro de membro que estão frequentando umpequeno grupo
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Cadastro de membro que estão frequentando umpequeno grupo
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <!-- lição -->
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
-                    aria-labelledby="v-pills-settings-tab">
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                     <div class="corpo-titulo"><i class='fas fa-bible' style='font-size:24px'> Lições</i></div>
                     <br>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Cadastro de membro que estão frequentando umpequeno grupo
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Cadastro de membro que estão frequentando umpequeno grupo
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Cadastro de membro que estão frequentando umpequeno grupo
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Membro</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Cadastro de membro que estão frequentando umpequeno grupo
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-
-            </div>
         </article>
     </div>
 </main>
-<%-include('../partials/footer-system.ejs')%> 
+<!-- modal pequeno grupo -->
+<div class="modal fade" id="modal-add-peq-grupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><i class='fas fa-users'><b>+</b></i> Cadastro de P. Grupo
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-peq-grupo" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Nome do Pequeno Grupo</label>
+                            <input type="text" class="form-control" id="validationCustom01"
+                                placeholder="Digite o nome Pequeno Grupo" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="label-cadastros" for="validationCustom02">Anfitrião</label>
+                            <input type="text" class="form-control" id="usuario" list="usuario-list"
+                                placeholder="Digite um usuário" value="" required>
+                            <datalist id="usuario-list">
+                                <option value="Alessandro"></option>
+                            </datalist>
+
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="label-cadastros" for="validationCustomUsername">Imagem</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i
+                                            class='fas fa-image'></i></span>
+                                </div>
+                                <input type="file" class="form-control" id="validationCustomUsername"
+                                    placeholder="Username" aria-describedby="inputGroupPrepend">
+
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button class="btn btn-success" type="submit">Salvar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal usuario -->
+<div class="modal fade" id="modal-add-usuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><i class='fas fa-user-plus'></i> Cadastro de Usuário
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-usuario" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                placeholder="Digite o nome completo" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="label-cadastros" for="validationCustom02">Data de Nascimento</label>
+                            <input type="date" class="form-control" id="nascimento" placeholder="Data de nascimento"
+                                value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                            <div class="invalid-feedback">
+                                Digite uma data!
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3 mb-3">
+                            <label class="label-cadastros" for="validationCustom02">Sexo</label>
+                            <select class="custom-select" name="sexo" required>
+                              <option value="">Escolha o sexo</option>
+                              <option value="masculino">Homem</option>
+                              <option value="feminino">Mulher</option>
+                            </select>
+                            <div class="invalid-feedback">Escolha uma opção</div>
+                            <div class="valid-feedback">Bom!</div>
+                          </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="label-cadastros" for="validationCustomUsername">Imagem</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i
+                                            class='fas fa-image'></i></span>
+                                </div>
+                                <input type="file" class="form-control" id="validationCustomUsername"
+                                    placeholder="Username" aria-describedby="inputGroupPrepend">
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Telefone</label>
+                            <input type="text" class="form-control" id="nome" name="telefone"
+                                placeholder="Digite o nome completo" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Email</label>
+                            <input type="text" class="form-control" id="nome" name="email"
+                                placeholder="Digite o nome completo" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button class="btn btn-success" type="submit">Salvar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const btnMenu = document.querySelectorAll('.nav-link')
+    const btnPeqGrupo = document.getElementById('menu-peq-grupo');
+    const btnAddPeqGrupo = document.getElementById('btn-add-peq-grupo');
+    const btnAddusuario = document.getElementById('btn-add-usuario');
+    btnMenu.forEach((item, i) => {
+        btnAddusuario.style.display = 'flex';
+        item.addEventListener('click', (e) => {
+            if (i === 1) {
+                btnAddPeqGrupo.style.display = 'flex';
+                btnAddusuario.style.display = 'none';
+            } else if (i === 0) {
+                btnAddusuario.style.display = 'flex';
+                btnAddPeqGrupo.style.display = 'none';
+            } else {
+                btnAddPeqGrupo.style.display = 'none';
+                btnAddusuario.style.display = 'none';
+            }
+        })
+    })
+</script>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('form-peq-grupo');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var formsUser = document.getElementsByClassName('form-usuario');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(formsUser, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+
+<%-include('../partials/footer-system.ejs')%>

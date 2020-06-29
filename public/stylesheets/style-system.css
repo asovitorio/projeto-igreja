@@ -1,3 +1,8 @@
+:root {
+    --color1: #75c2db;
+    --color2: #386e7f;
+}
+
 body * {
     margin: 0;
     padding: 0;
@@ -9,7 +14,7 @@ i * {
 }
 
 #nav {
-    background-color: #386e7f;
+    background-color: var(--color2);
     width: 100vw;
     height: 50px;
     margin-bottom: 10px;
@@ -41,6 +46,11 @@ header#nav ul {
 header#nav ul li {
     display: inline-block;
     color: white;
+}
+
+#foto-profile {
+    display: flex;
+    justify-content: center;
 }
 
 #foto-profile img {
@@ -101,11 +111,11 @@ hr {
 }
 
 #menu nav div a:hover {
-    background-color: #386e7f;
+    background-color: var(--color2);
 }
 
 #menu nav div a.active {
-    background-color: #386e7f;
+    background-color: var(--color2);
 
 
 }
@@ -142,15 +152,15 @@ hr {
     margin: 30px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     #menu {
 
         width: 50%;
         height: auto;
         transform: translateX(-100%);
         display: none;
-        transition: 21s ease-in;
-        
+        /* transition: 21s ease-in; */
+
     }
 
     #label-sanduiche {
@@ -161,7 +171,7 @@ hr {
         top: 52px;
         cursor: pointer;
         z-index: 1;
-       
+
     }
 
     #label-sanduiche i {
@@ -174,35 +184,39 @@ hr {
         transform: translateX(-0%);
         display: block;
         position: absolute;
-      
-    z-index: 1;
-    background: rgba(255,255,255,0.8);
-    /* display: flex; */
-    width: 90%;
+
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        /* display: flex; */
+        width: 90%;
 
 
     }
-    #corpo{
-        height:auto;
-       padding-bottom: 20px;
+
+    #corpo {
+        height: auto;
+        padding-bottom: 20px;
     }
-    #v-pills-tabContent{
+
+    #v-pills-tabContent {
         width: inherit;
-       
+
     }
 
 }
 
 .row {
     margin-right: 0;
-  
+
 }
-#v-pills-tabContent{
+
+#v-pills-tabContent {
     width: inherit;
     height: 100%;
 }
-div#v-pills-home .row{
-   
+
+div#v-pills-home .row {
+
     display: flex;
     justify-content: space-around;
 }
@@ -211,6 +225,7 @@ div#v-pills-home .row{
     box-shadow: 0px 3px 12px black;
     border: none;
     margin-top: 20px;
+
 }
 
 .card-header {
@@ -223,8 +238,10 @@ div#v-pills-home .row{
     background-color: #75c2db;
     border: none;
     margin-top: 15px;
+
 }
-.card-body a:hover{
+
+.card-body a:hover {
     background-color: #386e7f;
 }
 
@@ -246,15 +263,25 @@ div#v-pills-home .row{
     box-shadow: 0px 4px 8px black;
 
 }
-#box-local-peq-grupo {
 
+.btn-card {
+    background-color: #75c2db;
+    border: none;
+    margin: 15px;
+}
+
+.btn-card:hover {
+    background-color: var(--color2);
+    border: none;
+    margin: 15px;
+    transition: all .5s linear;
+}
+
+#box-local-peq-grupo {
     display: flex;
     justify-content: center;
     position: relative;
     padding-top: 30px;
-
-
-
 }
 
 #img-local-peq-grupo {
@@ -265,4 +292,121 @@ div#v-pills-home .row{
     border: 3px solid #75c2db;
     position: absolute;
     top: -55px;
+}
+
+.btn-add-peq-grupo {
+    display: none;
+    transition: all 1s ease-in;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+
+}
+
+
+.btn-add-peq-grupo button {
+    border-radius: 60px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    box-shadow: 0px 0px 10px black;
+    background-color: #75c2db;
+    border: none;
+
+}
+
+.btn-add-peq-grupo button i {
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+
+.modal-content {
+    border: 3px solid #75c2db;
+    border-radius: 5px;
+}
+
+.modal-header {
+    color: white;
+    border-bottom: 2px solid #75c2db;
+    background-color: var(--color1);
+
+}
+
+.label-cadastros {
+    color: var(--color1);
+    font-weight: bold;
+}
+
+.form-control {
+    border: 1px solid var(--color1);
+}
+
+.input-group-text {
+    background-color: var(--color1);
+
+}
+
+.input-group-text i {
+    font-size: 20px;
+    color: white;
+}
+
+
+#tabelas {
+    border: 3px solid var(--color1);
+}
+
+#tabelas thead {
+    background-color: var(--color1);
+    color: white;
+}
+
+#tabelas th {
+    text-align: center;
+}
+
+#tabelas tr * {
+    padding: 1px;
+
+}
+
+#tabelas tr {
+    border: 2px solid var(--color1);
+    text-align: center;
+}
+
+#tabelas tr td {
+    /* border: 3px solid var(--color1); */
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.img-table {
+    display: flex;
+    justify-content: center;
+}
+
+#avatar-tabela,
+img {
+    background-color: var(--color1);
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+@media(max-width:600px) {
+    .col-email {
+        display: none;
+    }
+    #tabelas tr td{
+        font-size: 15px;
+    }
 }
