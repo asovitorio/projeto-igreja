@@ -26,9 +26,9 @@ module.exports = {
         },
       
         
-        create_at: Sequelize.DATE,
-        update_at: Sequelize.DATE,
-        delete_at: Sequelize.DATE,
+        created_at: Sequelize.DATE,
+      updated_at: Sequelize.DATE,
+      deleted_at: Sequelize.DATE,
       
       });
   

@@ -31,7 +31,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      endereco: {
+      cep: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      logradouro: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      numero: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      complemento: {
         type: Sequelize.STRING,
         allowNull: true,
       },
@@ -50,9 +62,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      create_at: Sequelize.DATE,
-      update_at: Sequelize.DATE,
-      delete_at: Sequelize.DATE,
+      
+      created_at: Sequelize.DATE,
+      updated_at: Sequelize.DATE,
+      deleted_at: Sequelize.DATE,
     });
 
   },

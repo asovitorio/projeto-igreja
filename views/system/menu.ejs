@@ -224,8 +224,10 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                    <button class="btn btn-success" type="submit">Salvar</button>
+                    <div class="group-button">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button class="btn btn-info" type="submit">Salvar</button>
+                    </div>
                 </form>
 
             </div>
@@ -288,25 +290,115 @@
                                     placeholder="Username" aria-describedby="inputGroupPrepend">
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Telefone</label>
-                            <input type="text" class="form-control" id="nome" name="telefone"
-                                placeholder="Digite o nome completo" value="" required>
+                            <input type="tel" class="form-control" id="nome" name="telefone"
+                                placeholder="Digite um telefone" value="" required>
                             <div class="valid-feedback">
                                 Bom!
                             </div>
                         </div>
-                        <div class="col-md-8 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Email</label>
-                            <input type="text" class="form-control" id="nome" name="email"
-                                placeholder="Digite o nome completo" value="" required>
+                            <input type="email" class="form-control" id="nome" name="email"
+                                placeholder="Digite um email" value="" required>
                             <div class="valid-feedback">
                                 Bom!
                             </div>
                         </div>
+                        <div class="form-group col-md-3 mb-3">
+                            <label class="label-cadastros" for="validationCustom02">Status</label>
+                            <select class="custom-select" name="status" required>
+                              <option value="">Nível de acesso</option>
+                              <option value="masculino">ADM</option>
+                              <option value="feminino">USER</option>
+                            </select>
+                            <div class="invalid-feedback">Escolha uma opção</div>
+                            <div class="valid-feedback">Bom!</div>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">CEP</label>
+                            <input type="email" class="form-control" id="cep" name="cep"
+                                placeholder="Ex: 05797440" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                            <div class="invalid-feedback">
+                              Digite um CEP valido!
+                            </div>
+                          </div>
+                          <div class="col-md-7 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Logradouro</label>
+                            <input type="text" class="form-control" id="cep" name="cep"
+                                placeholder="Ex: Rua Silvio Gallicho" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                            <div class="invalid-feedback">
+                              Digite um lougradouro!
+                            </div>
+                          </div>
+                          <div class="col-md-2 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Nº</label>
+                            <input type="text" class="form-control" id="numero" name="numero"
+                                placeholder="Nº. Residência" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                            <div class="invalid-feedback">
+                              Digite um Número ou S/N!
+                            </div>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Complemento</label>
+                            <input type="text" class="form-control" id="complemento" name="complemento"
+                                placeholder="Ex: Bl 5 - Ap 203" value="">
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                            <div class="invalid-feedback">
+                              Digite um CEP valido!
+                            </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Bairro</label>
+                            <input type="text" class="form-control" id="bairro" name="bairro"
+                                placeholder="Digite o Bairro" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                            <div class="invalid-feedback">
+                              Digite um Bairro!
+                            </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">Cidade</label>
+                            <input type="text" class="form-control" id="cidade" name="cidade"
+                                placeholder="Ex:São Paulo" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                            <div class="invalid-feedback">
+                              Digite uma Cidade!
+                            </div>
+                          </div>
+                          <div class="col-md-1 mb-3">
+                            <label class="label-cadastros" for="validationCustom01">UF</label>
+                            <input type="text" class="form-control" id="uf" name="uf"
+                                placeholder="UF" value="" required>
+                            <div class="valid-feedback">
+                                Bom!
+                            </div>
+                            <div class="invalid-feedback">
+                              Digite um UF!
+                            </div>
+                          </div>
                     </div>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                    <button class="btn btn-success" type="submit">Salvar</button>
+                    <div class="group-button">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button class="btn btn-info" type="submit">Salvar</button>
+                    </div>
+                    
                 </form>
 
             </div>

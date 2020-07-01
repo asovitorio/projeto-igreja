@@ -1,55 +1,67 @@
 module.exports = (sequelize, DataTypes) => {
     const Pessoa = sequelize.define("Pessoa", {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
           },
           nome: {
     
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
           },
           data_nascimento: {
     
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: true,
           },
           sexo: {
     
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
           },
           telefone: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
           },
           image: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
           },
-          endereco: {
-            type: Sequelize.STRING,
+          cep: {
+            type: DataTypes.STRING,
+            allowNull: true,
+          },
+          logradouro: {
+            type: DataTypes.STRING,
+            allowNull: true,
+          },
+          numero: {
+            type: DataTypes.STRING,
+            allowNull: true,
+          },
+          complemento: {
+            type: DataTypes.STRING,
             allowNull: true,
           },
           bairro: {
     
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
           },
           cidade: {
     
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
           },
           uf: {
     
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
           },
-          create_at: Sequelize.DATE,
-          update_at: Sequelize.DATE,
-          delete_at: Sequelize.DATE,
+         created_at: DataTypes.DATE,
+          updated_at: DataTypes.DATE,
+          deleted_at: DataTypes.DATE,
     
     },{
       timestamps: true,
@@ -60,9 +72,10 @@ module.exports = (sequelize, DataTypes) => {
     });
     Pessoa.associate = (models) => {
       Pessoa.hasOne(models.Usuario, {
-        foreignKey: "usuario_id",
+        foreignKey: "pessoa_id",
         as: "usuario",
       });
     };
+
     return Pessoa;
 };

@@ -8,6 +8,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var sistemaRouter = require('./routes/sistema');
 
+// ######### Rotas da APIS ############
+const usuarioApiRouter = require('./routes/apis/usuarioApiRoute')
+
 var app = express();
 
 // view engine setup
@@ -23,6 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/system',sistemaRouter);
 app.use('/users', usersRouter);
+
+// ######### Rotas da APIS ############
+app.use('/api/v1/usuario',usuarioApiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -14,11 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      tipo: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      status: {
+       status: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -26,8 +22,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      create_at: DataTypes.DATE,
-      update_at: DataTypes.DATE,
+      created_at: DataTypes.DATE,
+      updated_at: DataTypes.DATE,
+      deleted_at: DataTypes.DATE,
 
     }, {
       timestamps: true,
@@ -38,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Usuario.associate = (models) => {
-    Pessoa.belongsTo(models.Usuario, {
+   Usuario.belongsTo(models.Pessoa, {
       foreignKey: "pessoa_id",
       as: "pessoa",
     });
