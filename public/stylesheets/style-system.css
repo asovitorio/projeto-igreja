@@ -357,6 +357,7 @@ div#v-pills-home .row {
 }
 
 
+   
 #tabelas {
     border: 3px solid var(--color1);
 }
@@ -375,13 +376,14 @@ div#v-pills-home .row {
 
 }
 
-#tabelas tr {
-    border: 2px solid var(--color1);
+#tabelas tr th {
+  
     text-align: center;
 }
 
 #tabelas tr td {
     /* border: 3px solid var(--color1); */
+   
     text-align: center;
     vertical-align: middle;
     font-size: 20px;
@@ -392,8 +394,7 @@ div#v-pills-home .row {
     justify-content: center;
 }
 
-#avatar-tabela,
-img {
+#avatar-tabela img {
     background-color: var(--color1);
     border-radius: 40px;
     width: 40px;
@@ -416,3 +417,4 @@ margin-left: 10px;
         font-size: 15px;
     }
 }
+

@@ -22,14 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      created_at: DataTypes.DATE,
-      updated_at: DataTypes.DATE,
-      deleted_at: DataTypes.DATE,
+      // created_at: DataTypes.DATE,
+      // updated_at: DataTypes.DATE,
+      // deleted_at: DataTypes.DATE,
 
     }, {
       timestamps: true,
       underscored: true,
-      paranoide:true,
+      paranoid:true,
       tableName: 'usuarios'
       
     }
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
   Usuario.associate = (models) => {
    Usuario.belongsTo(models.Pessoa, {
       foreignKey: "pessoa_id",
-      as: "pessoa",
+      as: "pessoas",
     });
   };
   return Usuario;

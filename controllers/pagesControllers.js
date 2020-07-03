@@ -1,4 +1,7 @@
 const Email = require('../config/email');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const jwtSecret = process.env.JWT_PASS; 
 const pagesControllers = {
     index: (_req,res)=>{
         const nav = {
@@ -60,6 +63,36 @@ const pagesControllers = {
            
         }
         res.render('sistema',{nav:nav})
+    },
+    senha: async (req,res)=>{
+        const nav = {
+            index:"active",
+            home:"",
+            sobre:"",
+            contato:"",
+            sistema:"active",
+            classBody:"home-body",
+            titulo:"Igreja Batista"
+           
+        }
+        const {token} = req.params
+        const usuarioToken = await jwt.verify(token,jwtSecret)
+        console.log(usuarioToken)
+        const usuario = {id:usuarioToken.id,nome:usuarioToken.email,status:usuarioToken.status}
+        res.render('alterarSenha',{nav:nav, usuario, token})
+    },
+    senhaAlterada: (req,res)=>{
+        const nav = {
+            index:"active",
+            home:"",
+            sobre:"",
+            contato:"",
+            sistema:"active",
+            classBody:"home-body",
+            titulo:"Igreja Batista"
+           
+        }
+       res.send(req.body)
     },
     email:(req,res) =>{
         const {nome, email, telefone, msg} = req.body;

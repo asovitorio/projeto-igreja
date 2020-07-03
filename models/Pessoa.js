@@ -59,9 +59,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
           },
-         created_at: DataTypes.DATE,
-          updated_at: DataTypes.DATE,
-          deleted_at: DataTypes.DATE,
+        //  created_at: DataTypes.DATE,
+        //   updated_at: DataTypes.DATE,
+        //   deleted_at: DataTypes.DATE,
     
     },{
       timestamps: true,

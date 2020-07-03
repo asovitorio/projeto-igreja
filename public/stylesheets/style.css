@@ -596,7 +596,7 @@ img.d-blockw-100 {
     display: flex;
     box-shadow: 0px 4px 8px black;
     
-    height:300px;
+    height:auto;
 
 }
 

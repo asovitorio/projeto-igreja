@@ -1,9 +1,60 @@
 const {Op} = require('sequelize');
+const jwt = require('jsonwebtoken')
 const {Pessoa,Usuario,sequelize} = require('../../models/');
 const bcrypt = require('bcrypt');
+const Email = require('../../config/email');
+require('dotenv').config()
+const twtSecret = process.env.JWT_PASS 
+const textoEmail = require('../../helpers/textoEmail');
+const textoEmails = require('../../helpers/textoEmail');
 const usuarioApiController = {
     index: async (req,res) =>{
-   
+   if(Object.keys(req.params).length === 0 && Object.keys(req.query).length===0){
+     try {
+       const usuarios = await Usuario.findAll({
+       include:{
+         association:'pessoas'
+       }
+      })
+     
+       return res.status(200).json(usuarios)
+     } catch (error) {
+      return res.status(400).json(error)
+     }
+   }else if(Object.keys(req.params).length>0){
+    try {
+      const usuarios = await Usuario.findAll({
+        where:{
+          id:req.params.id
+        },
+      include:{
+        association:'pessoas'
+      }
+     })
+      return res.status(200).json(usuarios)
+    } catch (error) {
+     return res.status(400).json(error)
+    }
+   }else{
+    const fieldName = Object.keys(req.query)[0]
+    const queryValue = req.query[fieldName]
+
+    try {
+       const usuarios = await Usuario.findAll({
+        where:{
+          [fieldName]: {
+            [Op.like]: `%${queryValue}%`
+        }
+        },
+      include:{
+        association:'pessoas'
+      }
+     })
+      return res.status(200).json(usuarios)
+    } catch (error) {
+     return res.status(400).json(error)
+    }
+   }
 
     },
     create: async (req,res) =>{
@@ -38,19 +89,103 @@ const usuarioApiController = {
                       }
                       return pessoaUsuario;
          })
+        
+         try {
+           const token = await jwt.sign({id:result.usuarioCadastro[0].id,email:result.usuarioCadastro[0].email,status:result.usuarioCadastro[0].status},twtSecret,{expiresIn:"10d"})
+           let enviarEmail = {
+            from:`${process.env.EMAIL_USER}`,
+            to:`${result.usuarioCadastro[0].email}`,
+            subject:'Sistema Pequeno Grupo',
+            html:textoEmails.alterarSenha(token)
+        }
+       
+         Email.sendMail(enviarEmail,(erro)=>{
+             if(erro){
+                 console.log('error: ' + erro );
+             }
+         });
+           console.log(token)
+           
+         } catch (error) {
+           console.log(error)
+         }
          return res.status(201).json(result);
        } catch (error) {
              return res.status(400).json(error);
        }
     },
     update: async (req,res) =>{
+      let id
+      let dados
+  
+      if(Object.keys(req.params).length === 0) {
+          //Permite alterações enviando todas informações pelo body
+          id = req.body.id;
+          dados = req.body;
+          dados.senha = bcrypt.hashSync(dados.senha,10)
+        
+      } else if(Object.keys(req.query).length === 0) {
+          //Permite alterações enviando id pelo endpoint e informações pelo body [/usuarios/:id]
+          id = req.params.id;
+          dados = req.body;
+          dados.senha = bcrypt.hashSync(dados.senha,10)
+      } else {
+          //Permite alterações enviando id pelo endpoint e informações por query [/usuarios/:id?atributo=valorAtualizado]
+          id = req.params.id;
+          dados = req.query;
+          dados.senha = bcrypt.hashSync(dados.senha,10)
+      }
+      try {
+        await sequelize.transaction(async (t) => {
+            await Usuario.update(dados, {
+                where: {
+                    id
+                },
+                transaction: t
+            });
 
+            return;
+        })
+      const result = await Usuario.findByPk(id);
+    
+           return res.status(200).json(result);
+        } catch (error) {
+           return res.status(400).json(error);
+        };
     },
    
    delete: async (req,res) =>{
+    let id
+    
+    if(Object.keys(req.params).length === 0) {
+        //Permite deletar enviando id pelo body
+        id = req.body.id;
+    } else {
+        //Permite deletar enviando id pelo endpoint [/usuarios/:id]
+        id = req.params.id;
+    }
+    try {
+      await sequelize.transaction(async (t) => {
+          await Usuario.destroy({
+              where: {
+                  id
+              },
+              transaction: t
+          });
 
-    },
+          return;
+      })
+
+      const result = await Usuario.findByPk(id, {paranoid:false});
+
+      return res.status(200).json(result);
+  } catch (error) {
+      return res.status(400).json(error);
+  };
    
+    },
+
+  
 }
 
 
