@@ -1,5 +1,6 @@
 require('dotenv').config()
 const tokenTeste = require('./middlewares/authApi')
+
 const teste = {
     username:process.env.DB_USER,
     password:process.env.DB_PASS,
@@ -10,6 +11,7 @@ const teste = {
     email:process.env.EMAIL_USER,
     senha:process.env.EMAIL_PASS,
     jwt:process.env.JWT_PASS,
+    apiBase:process.env.API_BASE,
 
  }
 

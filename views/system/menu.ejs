@@ -6,9 +6,9 @@
         <aside class="" id="menu">
 
             <nav id="painel-btn">
-                <div id="foto-profile"><img src="/images/pastor.jpg" alt="foto de perfil" class="img-thumbnail">
+                <div id="foto-profile"><img src="/images/<%=usuario.avatar %>" alt="foto de perfil" class="img-thumbnail">
                 </div>
-                <label class="perfil-usuario" for=""><b> Pr. Luciano</b><br>Status: ADM</label>
+                <label class="perfil-usuario" for=""><b> <%=usuario.nome %></b><br>Status: <%=usuario.status==1?"ADM":'USER'%></label>
                 <hr>
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="" data-toggle="pill" href="#v-pills-home" role="tab"
@@ -38,7 +38,7 @@
                     <br>
                     <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-striped" id="tabelas">
+                             <table class="table table-striped" id="tabelas">
                                 <thead>
                                     <tr>
                                         <th scope="col">Image</th>

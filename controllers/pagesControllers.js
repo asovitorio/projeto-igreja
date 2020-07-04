@@ -51,7 +51,7 @@ const pagesControllers = {
         }
         res.render('contato',{nav:nav,message:undefined})
     },
-    sistema: (_req,res)=>{
+    sistema: (req,res)=>{
         const nav = {
             index:"active",
             home:"",
@@ -59,9 +59,10 @@ const pagesControllers = {
             contato:"",
             sistema:"active",
             classBody:"home-body",
-            titulo:"Igreja Batista"
+            titulo:"Igreja Batista",
            
         }
+      
         res.render('sistema',{nav:nav})
     },
     senha: async (req,res)=>{

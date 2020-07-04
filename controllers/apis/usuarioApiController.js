@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 const Email = require('../../config/email');
 require('dotenv').config()
 const twtSecret = process.env.JWT_PASS 
-const textoEmail = require('../../helpers/textoEmail');
 const textoEmails = require('../../helpers/textoEmail');
 const usuarioApiController = {
     index: async (req,res) =>{
