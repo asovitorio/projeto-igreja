@@ -20,6 +20,10 @@ const systemControllers = {
                 }
         })
         const resposta = await listaUsuarios.json()
+         const nomeList = [];
+         resposta.forEach(nome => {
+           nomeList.push(nome.pessoas.nome)
+         });   
         console.log(Object.keys(resposta)[0]) 
         if(Object.keys(resposta)[0]=='err'){
            
@@ -27,7 +31,8 @@ const systemControllers = {
             req.flash('nivel',msg)
             res.redirect('/login')
         }
-         res.render('./system/menu',{usuario,resposta});
+        console.log(nomeList)
+         res.render('./system/menu',{usuario,resposta,nomeList});
     },
     cadastroMenbroView: (req, res) => {
         res.render('./system/pessoaLista');

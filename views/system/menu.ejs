@@ -184,7 +184,6 @@
                                 Bom!
                             </div>
                         </div>
-
                         <div class="col-md-6 mb-3">
                             <label class="label-cadastros" for="validationCustomUsername">Imagem</label>
                             <div class="input-group">
@@ -194,7 +193,6 @@
                                 </div>
                                 <input type="file" class="form-control" id="validationCustomUsername"
                                     placeholder="Username" aria-describedby="inputGroupPrepend">
-
                             </div>
                         </div>
                     </div>
@@ -224,9 +222,14 @@
                 <form class="form-usuario" novalidate>
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
-                            <label class="label-cadastros" for="validationCustom01">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome"
+                            <label class="label-cadastros"  for="validationCustom01">Nome</label>
+                            <input type="text" list="usuario-list1" class="form-control" id="nome" name="nome"
                                 placeholder="Digite o nome completo" value="" required>
+                                <datalist id="usuario-list1">
+                                    <%for (let index = 0; index < nomeList.length; index++){%>
+                                        <option value="<%= nomeList[index] %> "></option>
+                                    <% } %>    
+                                </datalist>
                             <div class="valid-feedback">
                                 Bom!
                             </div>
@@ -303,7 +306,7 @@
                         </div>
                         <div class="col-md-7 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Logradouro</label>
-                            <input type="text" class="form-control" id="cep" name="cep"
+                            <input type="text" class="form-control" id="logradouro" name="logradouro"
                                 placeholder="Ex: Rua Silvio Gallicho" value="" required>
                             <div class="valid-feedback">
                                 Bom!
@@ -329,9 +332,6 @@
                                 placeholder="Ex: Bl 5 - Ap 203" value="">
                             <div class="valid-feedback">
                                 Bom!
-                            </div>
-                            <div class="invalid-feedback">
-                                Digite um CEP valido!
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -369,7 +369,7 @@
                         </div>
                     </div>
                     <div class="group-button">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" id="fechar-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                         <button class="btn btn-info" type="submit">Salvar</button>
                     </div>
 
@@ -400,6 +400,9 @@
             }
         })
     })
+
+    
+    
 </script>
 
 <script>
@@ -440,5 +443,27 @@
     })();
 </script>
 
-
+<script>
+  const cep = document.getElementById('cep');
+    const logradouro = document.getElementById('logradouro');
+    const bairro = document.getElementById('bairro');
+    const cidade = document.getElementById('cidade');
+    const uf = document.getElementById('uf');
+     const numero = document.getElementById('numero');
+   
+    async function buscarCep(cep) {
+                const apiCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                const resposta = await apiCep.json();
+                return resposta
+            }
+         cep.addEventListener('change',async (e)=>{
+           const teste = await buscarCep(cep.value)
+            cep.value = teste.cep
+            logradouro.value = teste.logradouro
+            bairro.value = teste.bairro
+            cidade.value = teste.localidade
+            uf.value = teste.uf
+            numero.focus()
+         })
+</script>
 <%-include('../partials/footer-system.ejs')%>
