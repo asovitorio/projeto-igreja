@@ -4,6 +4,7 @@ const pagesControllers=require('../controllers/pagesControllers')
 const authControllers=require('../controllers/authControllers')
 
 /* GET home page. */
+
 router.get('/',pagesControllers.home );
 router.get('/home',pagesControllers.home );
 router.get('/sobre',pagesControllers.sobre );

@@ -6,9 +6,15 @@
         <aside class="" id="menu">
 
             <nav id="painel-btn">
-                <div id="foto-profile"><img src="/images/<%=usuario.avatar %>" alt="foto de perfil" class="img-thumbnail">
+                <div id="foto-profile"><img src="/images/profiles/<%=usuario.avatar %>" alt="foto de perfil"
+                        class="img-thumbnail">
                 </div>
-                <label class="perfil-usuario" for=""><b> <%=usuario.nome %></b><br>Status: <%=usuario.status==1?"ADM":'USER'%></label>
+                <label class="perfil-usuario" for=""><b> <%=usuario.nome %></b><br>  <span class="badge <%=usuario.status==1?"badge-secondary":"badge-info"%>" style="padding: 2px;">Status
+                    <span class="badge badge-light">
+                        <%=usuario.status==1?"ADM":'USER'%></label>
+                    </span>
+                </span>
+                   
                 <hr>
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="" data-toggle="pill" href="#v-pills-home" role="tab"
@@ -38,7 +44,7 @@
                     <br>
                     <div class="row">
                         <div class="col-sm-12">
-                             <table class="table table-striped" id="tabelas">
+                            <table class="table table-striped" id="tabelas">
                                 <thead>
                                     <tr>
                                         <th scope="col">Image</th>
@@ -48,59 +54,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <%resposta.forEach(element=>{%>
                                     <tr>
-                                        <td  class="img-table">
-                                            <div id="avatar-tabela"><img src="/images/pastor.jpg" width="40px" alt="">
+                                        <td class="img-table">
+                                            <div id="avatar-tabela"><img src="/images/profiles/<%=element.pessoas.image%>" width="40px" alt="">
                                             </div>
                                         </td>
-                                        <td>Pastor Luciano</td>
-                                        <td class="col-email">pr.luciano@gmail.com</td>
+                                        <td><%=element.pessoas.nome%></td>
+                                        <td class="col-email"><%=element.email%></td>
                                         <td>
-                                            <span class="badge badge-info" style="padding: 2px;">ADM
+                                            <div class="button-acao">
+                                            <span class="badge acao <%=element.status==1?"badge-secondary":"badge-info"%>" style="padding: 2px; "><%=element.status==1?"ADM":"USER"%>
                                                 <span class="badge badge-light">
-                                                    <i class='fas fa-pencil-alt  text-info'
-                                                        style='font-size:17px'></i>
-                                                    <i class='far fa-trash-alt text-secondary'
-                                                        style='font-size:20px'></i>
+                                                  <a href="#" class="btn editar btn-light"><i class='fas fa-pencil-alt  text-info' style='font-size:17px'></i></a>  
+                                                   <a href="#" class="btn btn-light"><i class='far fa-trash-alt text-secondary'
+                                                        style='font-size:20px'></i></a> 
                                                 </span>
                                             </span>
-
+                                        </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row" class="img-table">
-                                            <div id="avatar-tabela"><img src="/images/IMG_20180411_111301015~3.jpg"
-                                                    width="40px" alt="">
-                                            </div>
-                                        </th>
-                                        <td>Alessandro Barbosa Vitorio</td>
-                                        <td class="col-email">asovitorio@gmail.com</td>
-                                        <td> <span class="badge badge-dark" style="padding: 2px;">USER
-                                                <span class="badge badge-light">
-                                                    <i class='fas fa-pencil-alt  text-info'
-                                                        style='font-size:17px'></i>
-                                                    <i class='far fa-trash-alt text-secondary'
-                                                        style='font-size:20px'></i>
-                                                </span>
-                                            </span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="img-table">
-                                            <div id="avatar-tabela"><img src="/images/avatar.png" width="40px" alt="">
-                                            </div>
-                                        </th>
-                                        <td>Alessandro Barbosa Vitorio</td>
-                                        <td class="col-email">asovitorio@gmail.com</td>
-                                        <td> <span class="badge badge-dark" style="padding: 2px;">USER
-                                                <span class="badge badge-light">
-                                                    <i class='fas fa-pencil-alt  text-info  '
-                                                        style='font-size:17px'></i>
-                                                    <i class='far fa-trash-alt text-secondary'
-                                                        style='font-size:20px'></i>
-                                                </span>
-                                            </span></td>
-                                    </tr>
-
+                                    <%});%>
                                 </tbody>
                             </table>
 
@@ -272,13 +246,13 @@
                         <div class="form-group col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Sexo</label>
                             <select class="custom-select" name="sexo" required>
-                              <option value="">Escolha o sexo</option>
-                              <option value="masculino">Homem</option>
-                              <option value="feminino">Mulher</option>
+                                <option value="">Escolha o sexo</option>
+                                <option value="masculino">Homem</option>
+                                <option value="feminino">Mulher</option>
                             </select>
                             <div class="invalid-feedback">Escolha uma opção</div>
                             <div class="valid-feedback">Bom!</div>
-                          </div>
+                        </div>
                         <div class="col-md-6 mb-3">
                             <label class="label-cadastros" for="validationCustomUsername">Imagem</label>
                             <div class="input-group">
@@ -309,25 +283,25 @@
                         <div class="form-group col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Status</label>
                             <select class="custom-select" name="status" required>
-                              <option value="">Nível de acesso</option>
-                              <option value="masculino">ADM</option>
-                              <option value="feminino">USER</option>
+                                <option value="">Nível de acesso</option>
+                                <option value="masculino">ADM</option>
+                                <option value="feminino">USER</option>
                             </select>
                             <div class="invalid-feedback">Escolha uma opção</div>
                             <div class="valid-feedback">Bom!</div>
-                          </div>
-                          <div class="col-md-3 mb-3">
+                        </div>
+                        <div class="col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom01">CEP</label>
-                            <input type="email" class="form-control" id="cep" name="cep"
-                                placeholder="Ex: 05797440" value="" required>
+                            <input type="text" class="form-control" id="cep" name="cep" placeholder="Ex: 05797440"
+                                value="" required>
                             <div class="valid-feedback">
                                 Bom!
                             </div>
                             <div class="invalid-feedback">
-                              Digite um CEP valido!
+                                Digite um CEP valido!
                             </div>
-                          </div>
-                          <div class="col-md-7 mb-3">
+                        </div>
+                        <div class="col-md-7 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Logradouro</label>
                             <input type="text" class="form-control" id="cep" name="cep"
                                 placeholder="Ex: Rua Silvio Gallicho" value="" required>
@@ -335,10 +309,10 @@
                                 Bom!
                             </div>
                             <div class="invalid-feedback">
-                              Digite um lougradouro!
+                                Digite um lougradouro!
                             </div>
-                          </div>
-                          <div class="col-md-2 mb-3">
+                        </div>
+                        <div class="col-md-2 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Nº</label>
                             <input type="text" class="form-control" id="numero" name="numero"
                                 placeholder="Nº. Residência" value="" required>
@@ -346,10 +320,10 @@
                                 Bom!
                             </div>
                             <div class="invalid-feedback">
-                              Digite um Número ou S/N!
+                                Digite um Número ou S/N!
                             </div>
-                          </div>
-                          <div class="col-md-3 mb-3">
+                        </div>
+                        <div class="col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Complemento</label>
                             <input type="text" class="form-control" id="complemento" name="complemento"
                                 placeholder="Ex: Bl 5 - Ap 203" value="">
@@ -357,10 +331,10 @@
                                 Bom!
                             </div>
                             <div class="invalid-feedback">
-                              Digite um CEP valido!
+                                Digite um CEP valido!
                             </div>
-                          </div>
-                          <div class="col-md-4 mb-3">
+                        </div>
+                        <div class="col-md-4 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Bairro</label>
                             <input type="text" class="form-control" id="bairro" name="bairro"
                                 placeholder="Digite o Bairro" value="" required>
@@ -368,37 +342,37 @@
                                 Bom!
                             </div>
                             <div class="invalid-feedback">
-                              Digite um Bairro!
+                                Digite um Bairro!
                             </div>
-                          </div>
-                          <div class="col-md-4 mb-3">
+                        </div>
+                        <div class="col-md-4 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" name="cidade"
-                                placeholder="Ex:São Paulo" value="" required>
+                            <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Ex:São Paulo"
+                                value="" required>
                             <div class="valid-feedback">
                                 Bom!
                             </div>
                             <div class="invalid-feedback">
-                              Digite uma Cidade!
+                                Digite uma Cidade!
                             </div>
-                          </div>
-                          <div class="col-md-1 mb-3">
+                        </div>
+                        <div class="col-md-1 mb-3">
                             <label class="label-cadastros" for="validationCustom01">UF</label>
-                            <input type="text" class="form-control" id="uf" name="uf"
-                                placeholder="UF" value="" required>
+                            <input type="text" class="form-control" id="uf" name="uf" placeholder="UF" value=""
+                                required>
                             <div class="valid-feedback">
                                 Bom!
                             </div>
                             <div class="invalid-feedback">
-                              Digite um UF!
+                                Digite um UF!
                             </div>
-                          </div>
+                        </div>
                     </div>
                     <div class="group-button">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                         <button class="btn btn-info" type="submit">Salvar</button>
                     </div>
-                    
+
                 </form>
 
             </div>

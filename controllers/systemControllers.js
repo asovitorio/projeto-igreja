@@ -7,9 +7,9 @@ const API_BASE = process.env.API_BASE
 const systemControllers = {
 
     index: async (req, res) => {
-        const token = req.session.token
+        const token = req.session.token 
         const usuario = jwt.verify(token,jwtSecret)
-        console.log(usuario.pessoas)
+      
         const listaUsuarios = await fetch(`${API_BASE}/usuario`,{
             method: "GET",
               //  body: JSON.stringify(req.body),
@@ -20,13 +20,21 @@ const systemControllers = {
                 }
         })
         const resposta = await listaUsuarios.json()
-      resposta.forEach(element => {
-          console.log(element.status)
-      });
-        res.render('./system/menu',{usuario});
+        console.log(Object.keys(resposta)[0]) 
+        if(Object.keys(resposta)[0]=='err'){
+           
+           const msg = 'Nivel de acesso negado!'
+            req.flash('nivel',msg)
+            res.redirect('/login')
+        }
+         res.render('./system/menu',{usuario,resposta});
     },
     cadastroMenbroView: (req, res) => {
         res.render('./system/pessoaLista');
+    },
+    logout:(req,res) =>{
+        req.session.token = "";
+       res.redirect('/login')
     }
 
 }

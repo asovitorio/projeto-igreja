@@ -4,12 +4,12 @@ const usuarioApiController = require('../../controllers/apis/usuarioApiControlle
 const authApi = require('../../middlewares/authApi')
 
 router.get('/',authApi.auth,usuarioApiController.index)
-router.get('/:id',usuarioApiController.index)
-router.post('/',usuarioApiController.create)
-router.put('/',usuarioApiController.update)
-router.put('/:id',usuarioApiController.update)
-router.delete('/',usuarioApiController.delete)
-router.delete('/:id',usuarioApiController.delete)
+router.get('/:id',authApi.auth,usuarioApiController.index)
+router.post('/',authApi.auth,usuarioApiController.create)
+router.put('/',authApi.auth,usuarioApiController.update)
+router.put('/:id',authApi.auth,usuarioApiController.update)
+router.delete('/',authApi.auth,usuarioApiController.delete)
+router.delete('/:id',authApi.auth,usuarioApiController.delete)
 
 
 

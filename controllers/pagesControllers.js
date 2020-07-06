@@ -60,9 +60,12 @@ const pagesControllers = {
             sistema:"active",
             classBody:"home-body",
             titulo:"Igreja Batista",
-           
+            teste:req.flash('title_msg'),
+            permisao: req.flash('nivel')
         }
-      
+
+        console.log(req.flash('title_msg') + " teste")
+        console.log(nav.permisao)
         res.render('sistema',{nav:nav})
     },
     senha: async (req,res)=>{

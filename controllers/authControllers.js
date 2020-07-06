@@ -26,8 +26,8 @@ const authControllers = {
         }else{
            
             const msg = "Usuário ou senha invalidos"
-            req.flash('msg_erro',msg)
-            console.log(req.flash('msg_erro'))
+            req.flash('title_msg',msg) 
+           // console.log( req.flash('title_msg'))
             res.redirect('/login')
         }
 
