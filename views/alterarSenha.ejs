@@ -10,8 +10,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Nova Senha</h5>
                     <form id="form" action="/alterar-senha" method="POST" class="needs-validation" novalidate >
-                        <input type="hidden" name="id" value="<%= usuario.id %> ">
-                        <input type="hidden" name="token" value="<%= token %> ">
+                        <input type="hidden" name="id" value="<%=usuario.id%>">
+                        <input type="hidden" name="status" value="<%=usuario.status%>">
+                        <input type="hidden" name="email" value="<%=usuario.nome%>">
+                        <input type="hidden" name="token" value="<%=token%>">
                         <label id="alertaUsuario" for=""></label>
                           <div class="input-group mb-3">
                              <div class="input-group-prepend">
@@ -31,7 +33,7 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text" style="background-color:#75c2db; border: none; color: white;" id="basic-addon1"><i class='fas fa-lock' style='font-size:15px'></i></span>
                             </div>
-                            <input id="confirmaSenha" name="confirmaSenha" type="password" class="form-control" placeholder="confirme a senha" aria-label="Username" aria-describedby="basic-addon1">
+                            <input id="confirmaSenha" name="" type="password" class="form-control" placeholder="confirme a senha" aria-label="Username" aria-describedby="basic-addon1">
                           </div>
                          
                         <button id="submit" type="submit" class="btn btn-primary" style="background-color:#75c2db; border: none;">Salvar <i class='fas fa-save' style='font-size:15px'></i></button>

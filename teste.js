@@ -12,6 +12,7 @@ const teste = {
     senha:process.env.EMAIL_PASS,
     jwt:process.env.JWT_PASS,
     apiBase:process.env.API_BASE,
+    senha:process.env.USER_PASS,
 
  }
 

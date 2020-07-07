@@ -64,7 +64,7 @@
                                         <td class="col-email"><%=element.email%></td>
                                         <td>
                                             <div class="button-acao">
-                                            <span class="badge acao <%=element.status==1?"badge-secondary":"badge-info"%>" style="padding: 2px; "><%=element.status==1?"ADM":"USER"%>
+                                            <span class="badge acao <%=element.status==1?"badge-secondary":element.status==2?"badge-info":"badge-danger"%>" style="padding: 2px; "><%=element.status==1?"ADM":element.status==2?"USER":"INAT"%>
                                                 <span class="badge badge-light">
                                                   <a href="#" class="btn editar btn-light"><i class='fas fa-pencil-alt  text-info' style='font-size:17px'></i></a>  
                                                    <a href="#" class="btn btn-light"><i class='far fa-trash-alt text-secondary'
@@ -148,6 +148,9 @@
                 </div>
         </article>
     </div>
+   
+
+    </form>
 </main>
 <!-- modal pequeno grupo -->
 <div class="modal fade" id="modal-add-peq-grupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -162,12 +165,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-peq-grupo" novalidate>
+                <form class="form-peq-grupo" method="post" action="system/cadastro-usuario" enctype="multipart/form-data" novalidate>
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Nome do Pequeno Grupo</label>
                             <input type="text" class="form-control" id="validationCustom01"
-                                placeholder="Digite o nome Pequeno Grupo" value="" required>
+                                placeholder="Digite o nome Pequeno Grupo" name="peq-grupo" value="" required>
                             <div class="valid-feedback">
                                 Bom!
                             </div>
@@ -175,9 +178,11 @@
                         <div class="col-md-6 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Anfitrião</label>
                             <input type="text" class="form-control" id="usuario" list="usuario-list"
-                                placeholder="Digite um usuário" value="" required>
+                                placeholder="Digite um usuário" name="anfitriao" value="" required>
                             <datalist id="usuario-list">
-                                <option value="Alessandro"></option>
+                                <%for (let index = 0; index < nomeList.length; index++){%>
+                                    <option value="<%= nomeList[index] %> "></option>
+                                <% } %>    
                             </datalist>
 
                             <div class="valid-feedback">
@@ -192,7 +197,7 @@
                                             class='fas fa-image'></i></span>
                                 </div>
                                 <input type="file" class="form-control" id="validationCustomUsername"
-                                    placeholder="Username" aria-describedby="inputGroupPrepend">
+                                    placeholder="Username" name="image" aria-describedby="inputGroupPrepend">
                             </div>
                         </div>
                     </div>
@@ -219,7 +224,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-usuario" novalidate>
+               
+                <form  class="form-usuario" action="system/cadastro-usuario" method="POST" enctype="multipart/form-data"  novalidate>
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                             <label class="label-cadastros"  for="validationCustom01">Nome</label>
@@ -236,7 +242,7 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Data de Nascimento</label>
-                            <input type="date" class="form-control" id="nascimento" placeholder="Data de nascimento"
+                            <input type="date" class="form-control" id="nascimento" name="data_nascimento" placeholder="Data de nascimento"
                                 value="" required>
                             <div class="valid-feedback">
                                 Bom!
@@ -263,8 +269,8 @@
                                     <span class="input-group-text" id="inputGroupPrepend"><i
                                             class='fas fa-image'></i></span>
                                 </div>
-                                <input type="file" class="form-control" id="validationCustomUsername"
-                                    placeholder="Username" aria-describedby="inputGroupPrepend">
+                                <input type="file" class="form-control" name="image" id="image"
+                                    placeholder="image" aria-describedby="inputGroupPrepend">
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
@@ -277,7 +283,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Email</label>
-                            <input type="email" class="form-control" id="nome" name="email"
+                            <input type="email" class="form-control" id="email" name="email"
                                 placeholder="Digite um email" value="" required>
                             <div class="valid-feedback">
                                 Bom!
@@ -287,8 +293,9 @@
                             <label class="label-cadastros" for="validationCustom02">Status</label>
                             <select class="custom-select" name="status" required>
                                 <option value="">Nível de acesso</option>
-                                <option value="masculino">ADM</option>
-                                <option value="feminino">USER</option>
+                                <option value="1">ADM</option>
+                                <option value="2">USER</option>
+                                <option value="3">INATIVO</option>
                             </select>
                             <div class="invalid-feedback">Escolha uma opção</div>
                             <div class="valid-feedback">Bom!</div>
@@ -401,8 +408,15 @@
         })
     })
 
-    
-    
+//     const testeModal = document.getElementById('btn-add-usuario')
+//     console.log(testeModal)         
+//     function abreModal() {
+//  $("#modal-add-usuario").modal({
+//       show: true
+//     });
+//  }
+
+// setTimeout(abreModal, 2);
 </script>
 
 <script>

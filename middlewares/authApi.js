@@ -13,13 +13,13 @@ const authApi ={
             const usuario = await jwt.verify(token,jwtSecret) 
             req.token = token;
             req.usuarioLoagado = usuario
-            if(usuario.status==1||usuario.status==2||req.session.token != ""){
-                
+            console.log(usuario.status)
+            if(usuario.status==1 || usuario.status==2){
+               
                 next()
             }else{
+                console.log(usuario.status)
                 res.status(401).json({err:"Usuário não é um Adm"});
-                console.log('Usuário não é um Adm')
-                
             }
               
         } catch (error) {

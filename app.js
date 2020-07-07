@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
+const methodOverride  = require("method-override");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var sistemaRouter = require('./routes/sistema');
@@ -25,11 +26,13 @@ app.use(session({
   resave:true,
   saveUninitialized:true
 }))
+
 app.use(flash());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors())
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // ######### Rotas do Sistema ############

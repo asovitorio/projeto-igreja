@@ -1,6 +1,9 @@
 const Email = require('../config/email');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const fetch = require('node-fetch');
+const bcrypt = require('bcrypt')
+const API_BASE = process.env.API_BASE
 const jwtSecret = process.env.JWT_PASS; 
 const pagesControllers = {
     index: (_req,res)=>{
@@ -85,7 +88,7 @@ const pagesControllers = {
         const usuario = {id:usuarioToken.id,nome:usuarioToken.email,status:usuarioToken.status}
         res.render('alterarSenha',{nav:nav, usuario, token})
     },
-    senhaAlterada: (req,res)=>{
+    senhaAlterada: async (req,res)=>{
         const nav = {
             index:"active",
             home:"",
@@ -96,7 +99,44 @@ const pagesControllers = {
             titulo:"Igreja Batista"
            
         }
-       res.send(req.body)
+     
+    const {id,email,status,senha,token} =req.body
+       
+      
+       const senhaHash = bcrypt.hashSync(senha,10);
+         
+      const usuario ={
+          id,
+          email,
+          status,
+          senha:senhaHash
+     }
+     console.log(token)
+   
+         
+        try {
+           
+            const alterarSenha = await fetch(`${API_BASE}/usuario`, {
+              method: "put",
+              body: JSON.stringify({id,email,status,senha:senhaHash,}),
+              headers: {
+               
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+              }
+            })
+            const resposta = await alterarSenha.json()
+                console.log(resposta)
+            res.redirect('/login')
+          
+            
+               
+           } catch (error) {
+               console.log(error)
+            res.status(400).json(error)
+           }
+          
+      
     },
     email:(req,res) =>{
         const {nome, email, telefone, msg} = req.body;

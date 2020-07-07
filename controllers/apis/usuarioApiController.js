@@ -121,18 +121,19 @@ const usuarioApiController = {
           //Permite alterações enviando todas informações pelo body
           id = req.body.id;
           dados = req.body;
-          dados.senha = bcrypt.hashSync(dados.senha,10)
+         // dados.senha = bcrypt.hashSync(dados.senha,10)
+      
         
       } else if(Object.keys(req.query).length === 0) {
           //Permite alterações enviando id pelo endpoint e informações pelo body [/usuarios/:id]
           id = req.params.id;
           dados = req.body;
-          dados.senha = bcrypt.hashSync(dados.senha,10)
+         // dados.senha = bcrypt.hashSync(dados.senha,10)
       } else {
           //Permite alterações enviando id pelo endpoint e informações por query [/usuarios/:id?atributo=valorAtualizado]
           id = req.params.id;
           dados = req.query;
-          dados.senha = bcrypt.hashSync(dados.senha,10)
+         // dados.senha = bcrypt.hashSync(dados.senha,10)
       }
       try {
         await sequelize.transaction(async (t) => {
@@ -142,7 +143,6 @@ const usuarioApiController = {
                 },
                 transaction: t
             });
-
             return;
         })
       const result = await Usuario.findByPk(id);
