@@ -36,10 +36,15 @@ const systemControllers = {
         nomeList.push(nome.pessoas.nome)
       });
     }
+   
+    const msgCadastro = req.flash('cadastro')
+   msgCadastro> 0?"usuário cadastrado com sucesso":"";
+   console.log( msgCadastro>0?"usuário cadastrado com sucesso":"teste")
     res.render('./system/menu', {
       usuario,
       resposta,
-      nomeList
+      nomeList,
+      msgCad:msgCadastro.length>0?"usuário cadastrado com sucesso":""
     });
   },
   cadastroMenbroView: (req, res) => {
@@ -74,6 +79,8 @@ const systemControllers = {
         }
       })
       const resposta = await cadastroUsuario.json()
+      msg = `Usuário ${resposta.email} cadastrado com sucesso!`
+      req.flash('cadastro',msg)
          res.redirect('/system')
 
      } catch (error) {
