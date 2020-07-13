@@ -72,10 +72,11 @@ const pagesControllers = {
             classBody: "home-body",
             titulo: "Igreja Batista",
             teste: req.flash('title_msg'),
-            permisao: req.flash('nivel')
-        }
-        console.log(req.flash('title_msg') + " teste")
-        console.log(nav.permisao)
+            permisao: req.flash('nivel'),
+            nivel: req.flash('user'),
+          }
+        console.log(req.flash('user') + " teste")
+        console.log(nav.nivel)
         res.render('sistema', {
             nav: nav
         })

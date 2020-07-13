@@ -7,7 +7,6 @@ const jwtSecret = process.env.JWT_PASS
 const API_BASE = process.env.API_BASE 
 
 const authControllers = {
-
     auth: async (req,res) =>{
      try {
         const login = await fetch(`${API_BASE}/login`,{
@@ -24,13 +23,11 @@ const authControllers = {
             req.session.token = token.token
             res.redirect('/system')
         }else{
-           
             const msg = "Usuário ou senha invalidos"
             req.flash('title_msg',msg) 
            // console.log( req.flash('title_msg'))
             res.redirect('/login')
         }
-
      } catch (error) {
         console,log('erro')
      }

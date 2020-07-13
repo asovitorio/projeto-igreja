@@ -22,16 +22,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      // created_at: DataTypes.DATE,
-      // updated_at: DataTypes.DATE,
-      // deleted_at: DataTypes.DATE,
-
     }, {
       timestamps: true,
       underscored: true,
       paranoid:true,
       tableName: 'usuarios'
-      
     }
   );
   Usuario.associate = (models) => {

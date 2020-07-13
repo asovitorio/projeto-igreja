@@ -1,6 +1,6 @@
 <%-include('../partials/head-system.ejs')%>
 <main class="contaner">
-    <label for="menu-sanduiche" id="label-sanduiche"> <i class="fas fa-list-alt"></i></label>
+    <label for="menu-sanduiche" id="label-sanduiche"> <i class="fas fa-bars"></i></label>
     <div class="main">
         <input type="checkbox" id="menu-sanduiche">
         <aside class="" id="menu">
@@ -46,7 +46,7 @@
                     <div class="table-overflow row">
                         <div class=" col-sm-12">
                             <table class="table table-striped" id="tabelas">
-                                <thead>
+                                <thead id="cabecalho-usuario">
                                     <tr>
                                         <th scope="col">Image</th>
                                         <th scope="col">Nome</th>
@@ -71,11 +71,15 @@
                                                     class="badge acao <%=element.status==1?"badge-secondary":element.status==2?"badge-info":"badge-danger"%>"
                                                     style="padding: 2px; "><%=element.status==1?"ADM":element.status==2?"USER":"INAT"%>
                                                     <span class="badge badge-light">
-                                                        <a href="#" class="btn editar btn-light"><i
+                                                        <!-- <button type="button"  data-toggle="modal"
+                                                        data-target="#modal-add-usuario" usuarioId="<%=element.id%>"  id="editar-usuario" class="btn editar btn-light editar-usuario"><i
                                                                 class='fas fa-pencil-alt  text-info'
-                                                                style='font-size:17px'></i></a>
-                                                        <a href="#" class="btn btn-light"><i
+                                                                style='font-size:17px'></i></button>
+                                                        <a href="#" class="btn btn-light delete-usuario"><i
                                                                 class='far fa-trash-alt text-secondary'
+                                                                style='font-size:20px'></i></a> -->
+                                                        <a href="#" class="btn btn-light delete-usuario"><i
+                                                                class='far fa-eye text-info'
                                                                 style='font-size:20px'></i></a>
                                                     </span>
                                                 </span>
@@ -86,7 +90,6 @@
                                 </tbody>
                             </table>
                         </div>
-                      
                     </div>
                 </div>
                 <!-- grupo -->
@@ -170,8 +173,8 @@
                                     <span class="input-group-text" id="inputGroupPrepend"><i
                                             class='fas fa-image'></i></span>
                                 </div>
-                                <input type="file" class="form-control" id="validationCustomUsername"
-                                    placeholder="Username" name="image" aria-describedby="inputGroupPrepend">
+                                <input type="file" class="form-control" id="image" placeholder="Username" name="image"
+                                    aria-describedby="inputGroupPrepend">
                             </div>
                         </div>
                     </div>
@@ -198,12 +201,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-usuario" action="system/cadastro-usuario" method="POST" enctype="multipart/form-data"
-                    novalidate>
+                <form class="form-usuario" id="form-usuario" action="system/cadastro-usuario" method="POST"
+                    enctype="multipart/form-data" novalidate>
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Nome</label>
-                            <input type="text" list="usuario-list1" class="form-control" id="nome" name="nome"
+                            <input type="text" list="usuario-list1" class="form-control" id="nomeUsu" name="nome"
                                 placeholder="Digite o nome completo" value="" required>
                             <datalist id="usuario-list1">
                                 <%for (let index = 0; index < nomeList.length; index++){%>
@@ -228,7 +231,7 @@
 
                         <div class="form-group col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Sexo</label>
-                            <select class="custom-select" name="sexo" required>
+                            <select class="custom-select" id="sexo" name="sexo" required>
                                 <option value="">Escolha o sexo</option>
                                 <option value="masculino">Homem</option>
                                 <option value="feminino">Mulher</option>
@@ -249,7 +252,7 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Telefone</label>
-                            <input type="tel" class="form-control" id="nome" name="telefone"
+                            <input type="tel" class="form-control" id="telefone" name="telefone"
                                 placeholder="Digite um telefone" value="" required>
                             <div class="valid-feedback">
                                 Bom!
@@ -265,7 +268,7 @@
                         </div>
                         <div class="form-group col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Status</label>
-                            <select class="custom-select" name="status" required>
+                            <select class="custom-select" id="status" name="status" required>
                                 <option value="">Nível de acesso</option>
                                 <option value="1">ADM</option>
                                 <option value="2">USER</option>
@@ -361,27 +364,46 @@
 </div>
 <%-include('../partials/footer-system.ejs')%>
 <script>
-   
     console.log('<%=msgCad%>')
-    '<% if( msgCad !=""){%>'
+    '<% if( msgCad){%>'
     toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": true,
-  "positionClass": "toast-top-center",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
-toastr.success(`${msgCad}`, toastr.options)
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.success(`Usuário cadastrado com sucesso!`, toastr.options)
+    '<%}%>'
+    '<% if( msgAtu){%>'
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.success(`Usuário Atualizado com sucesso!`, toastr.options)
     '<%}%>'
 </script>
 <script>
@@ -454,16 +476,38 @@ toastr.success(`${msgCad}`, toastr.options)
 </script>
 
 <script>
+    const editar = document.getElementsByClassName('editar-usuario')
+    const formUsu = document.getElementById('form-usuario')
+    const nomeUsu = document.getElementById('nomeUsu')
+    const nascimento = document.getElementById('nascimento')
+    const sexo = document.getElementById('sexo')
+    const telefone = document.getElementById('telefone')
+    const email = document.getElementById('email')
+
+    const status = document.getElementById('status')
     const cep = document.getElementById('cep');
     const logradouro = document.getElementById('logradouro');
     const bairro = document.getElementById('bairro');
     const cidade = document.getElementById('cidade');
     const uf = document.getElementById('uf');
     const numero = document.getElementById('numero');
-
     async function buscarCep(cep) {
         const apiCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const resposta = await apiCep.json();
+        return resposta
+    }
+    async function buscarUsuario(id, api, token) {
+        const API_BASE = `${api}/usuario/${id}`
+        const apiUsuario = await fetch(API_BASE, {
+            method: "GET",
+            //  body: JSON.stringify(req.body),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        });
+        const resposta = await apiUsuario.json();
         return resposta
     }
     cep.addEventListener('change', async (e) => {
@@ -475,6 +519,39 @@ toastr.success(`${msgCad}`, toastr.options)
         uf.value = teste.uf
         numero.focus()
     })
+
+    function abreModal() {
+        $("#modal-add-usuario").modal({
+            show: true
+        });
+    }
+
+    for (let i = 0; i < editar.length; i++) {
+        editar[i].addEventListener('click', async (e) => {
+            e.preventDefault()
+            const id = editar[i].attributes.usuarioId.value;
+            const respUsuario = await buscarUsuario(id, '<%=api%>', '<%=token%>');
+            nomeUsu.value = respUsuario[0].pessoas.nome
+            nascimento.value = respUsuario[0].pessoas.data_nascimento.slice(0, 10)
+            sexo.value = respUsuario[0].pessoas.sexo
+            telefone.value = respUsuario[0].pessoas.telefone
+            email.value = respUsuario[0].email
+            status.value = respUsuario[0].status
+            cep.value = respUsuario[0].pessoas.cep
+            logradouro.value = respUsuario[0].pessoas.logradouro
+            numero.value = respUsuario[0].pessoas.numero
+            complemento.value = respUsuario[0].pessoas.complemento
+            bairro.value = respUsuario[0].pessoas.bairro
+            cidade.value = respUsuario[0].pessoas.cidade
+            uf.value = respUsuario[0].pessoas.uf
+            formUsu.action = `system/cadastro-usuario/${respUsuario[0].id}?_method=PUT`
+
+            //system/cadastro-usuario?_method=PUT
+            console.log(formUsu)
+            // abreModal()
+
+        })
+    }
 </script>
 
 
