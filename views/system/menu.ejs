@@ -1,10 +1,6 @@
 <%-include('../partials/head-system.ejs')%>
 <main class="contaner">
-<<<<<<< HEAD
-    <label for="menu-sanduiche" id="label-sanduiche"> <i class="fas fa-list-alt"></i></label>
-=======
     <label for="menu-sanduiche" id="label-sanduiche"> <i class="fas fa-bars"></i></label>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
     <div class="main">
         <input type="checkbox" id="menu-sanduiche">
         <aside class="" id="menu">
@@ -13,14 +9,6 @@
                 <div id="foto-profile"><img src="/images/profiles/<%=usuario.avatar %>" alt="foto de perfil"
                         class="img-thumbnail">
                 </div>
-<<<<<<< HEAD
-                <label class="perfil-usuario" for=""><b> <%=usuario.nome %></b><br>  <span class="badge <%=usuario.status==1?"badge-secondary":"badge-info"%>" style="padding: 2px;">Status
-                    <span class="badge badge-light">
-                        <%=usuario.status==1?"ADM":'USER'%></label>
-                    </span>
-                </span>
-                   
-=======
                 <label class="perfil-usuario" for=""><b> <%=usuario.nome %></b><br> <span
                         class="badge <%=usuario.status==1?"badge-secondary":"badge-info"%>" style="padding: 2px;">Status
                         <span class="badge badge-light">
@@ -28,7 +16,6 @@
                 </span>
                 </span>
 
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                 <hr>
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="" data-toggle="pill" href="#v-pills-home" role="tab"
@@ -56,17 +43,10 @@
                     aria-labelledby="v-pills-home-tab">
                     <div class="corpo-titulo"><i class='fas fa-user-cog' style='font-size:24px'> Usuários</i></div>
                     <br>
-<<<<<<< HEAD
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table class="table table-striped" id="tabelas">
-                                <thead>
-=======
                     <div class="table-overflow row">
                         <div class=" col-sm-12">
                             <table class="table table-striped" id="tabelas">
                                 <thead id="cabecalho-usuario">
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                                     <tr>
                                         <th scope="col">Image</th>
                                         <th scope="col">Nome</th>
@@ -78,29 +58,15 @@
                                     <%resposta.forEach(element=>{%>
                                     <tr>
                                         <td class="img-table">
-<<<<<<< HEAD
-                                            <div id="avatar-tabela"><img src="/images/profiles/<%=element.pessoas.image%>" width="40px" alt="">
-=======
                                             <div id="avatar-tabela"><img
                                                     src="/images/profiles/<%=element.pessoas.image%>" width="40px"
                                                     alt="">
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                                             </div>
                                         </td>
                                         <td><%=element.pessoas.nome%></td>
                                         <td class="col-email"><%=element.email%></td>
                                         <td>
                                             <div class="button-acao">
-<<<<<<< HEAD
-                                            <span class="badge acao <%=element.status==1?"badge-secondary":element.status==2?"badge-info":"badge-danger"%>" style="padding: 2px; "><%=element.status==1?"ADM":element.status==2?"USER":"INAT"%>
-                                                <span class="badge badge-light">
-                                                  <a href="#" class="btn editar btn-light"><i class='fas fa-pencil-alt  text-info' style='font-size:17px'></i></a>  
-                                                   <a href="#" class="btn btn-light"><i class='far fa-trash-alt text-secondary'
-                                                        style='font-size:20px'></i></a> 
-                                                </span>
-                                            </span>
-                                        </div>
-=======
                                                 <span
                                                     class="badge acao <%=element.status==1?"badge-secondary":element.status==2?"badge-info":"badge-danger"%>"
                                                     style="padding: 2px; "><%=element.status==1?"ADM":element.status==2?"USER":"INAT"%>
@@ -118,51 +84,12 @@
                                                     </span>
                                                 </span>
                                             </div>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                                         </td>
                                     </tr>
                                     <%});%>
                                 </tbody>
                             </table>
-<<<<<<< HEAD
-
-                            <!-- <div class="card">
-                                <div class="card-header"><i class='far fa-address-book' style='font-size:30px'><b
-                                            style="font-size: 25px;"> Participante</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">São pessoas que estão frequentando um pequeno grupo de forma
-                                        permanente. </p>
-                                    <a href="/system/membro" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div> -->
                         </div>
-                        <!-- <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='fas fa-user-circle' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Usuario</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Usuários são participantes de um pequeno grupo que estão
-                                        habilitados à utilizar o sistema </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-header"><i class='fas fa-user-friends' style='font-size:36px'><b
-                                            style="font-size: 25px;"> Visitas</b></i></div>
-                                <div class="card-body">
-                                    <p class="card-text">Visitas são pessoas que estão frequentando um pequeno grupo de
-                                        forma esporádica.
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Entrar</a>
-                                </div>
-                            </div>
-                        </div> -->
-
-=======
-                        </div>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                     </div>
                 </div>
                 <!-- grupo -->
@@ -199,11 +126,6 @@
                 </div>
         </article>
     </div>
-<<<<<<< HEAD
-   
-
-=======
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
     </form>
 </main>
 <!-- modal pequeno grupo -->
@@ -219,12 +141,8 @@
                 </button>
             </div>
             <div class="modal-body">
-<<<<<<< HEAD
-                <form class="form-peq-grupo" method="post" action="system/cadastro-usuario" enctype="multipart/form-data" novalidate>
-=======
                 <form class="form-peq-grupo" method="post" action="system/cadastro-usuario"
                     enctype="multipart/form-data" novalidate>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Nome do Pequeno Grupo</label>
@@ -240,13 +158,8 @@
                                 placeholder="Digite um usuário" name="anfitriao" value="" required>
                             <datalist id="usuario-list">
                                 <%for (let index = 0; index < nomeList.length; index++){%>
-<<<<<<< HEAD
-                                    <option value="<%= nomeList[index] %> "></option>
-                                <% } %>    
-=======
                                 <option value="<%= nomeList[index] %> "></option>
                                 <% } %>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                             </datalist>
 
                             <div class="valid-feedback">
@@ -260,13 +173,8 @@
                                     <span class="input-group-text" id="inputGroupPrepend"><i
                                             class='fas fa-image'></i></span>
                                 </div>
-<<<<<<< HEAD
-                                <input type="file" class="form-control" id="validationCustomUsername"
-                                    placeholder="Username" name="image" aria-describedby="inputGroupPrepend">
-=======
                                 <input type="file" class="form-control" id="image" placeholder="Username" name="image"
                                     aria-describedby="inputGroupPrepend">
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                             </div>
                         </div>
                     </div>
@@ -293,20 +201,6 @@
                 </button>
             </div>
             <div class="modal-body">
-<<<<<<< HEAD
-               
-                <form  class="form-usuario" action="system/cadastro-usuario" method="POST" enctype="multipart/form-data"  novalidate>
-                    <div class="form-row">
-                        <div class="col-md-12 mb-3">
-                            <label class="label-cadastros"  for="validationCustom01">Nome</label>
-                            <input type="text" list="usuario-list1" class="form-control" id="nome" name="nome"
-                                placeholder="Digite o nome completo" value="" required>
-                                <datalist id="usuario-list1">
-                                    <%for (let index = 0; index < nomeList.length; index++){%>
-                                        <option value="<%= nomeList[index] %> "></option>
-                                    <% } %>    
-                                </datalist>
-=======
                 <form class="form-usuario" id="form-usuario" action="system/cadastro-usuario" method="POST"
                     enctype="multipart/form-data" novalidate>
                     <div class="form-row">
@@ -319,20 +213,14 @@
                                 <option value="<%= nomeList[index] %> "></option>
                                 <% } %>
                             </datalist>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                             <div class="valid-feedback">
                                 Bom!
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Data de Nascimento</label>
-<<<<<<< HEAD
-                            <input type="date" class="form-control" id="nascimento" name="data_nascimento" placeholder="Data de nascimento"
-                                value="" required>
-=======
                             <input type="date" class="form-control" id="nascimento" name="data_nascimento"
                                 placeholder="Data de nascimento" value="" required>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                             <div class="valid-feedback">
                                 Bom!
                             </div>
@@ -343,11 +231,7 @@
 
                         <div class="form-group col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Sexo</label>
-<<<<<<< HEAD
-                            <select class="custom-select" name="sexo" required>
-=======
                             <select class="custom-select" id="sexo" name="sexo" required>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                                 <option value="">Escolha o sexo</option>
                                 <option value="masculino">Homem</option>
                                 <option value="feminino">Mulher</option>
@@ -362,22 +246,13 @@
                                     <span class="input-group-text" id="inputGroupPrepend"><i
                                             class='fas fa-image'></i></span>
                                 </div>
-<<<<<<< HEAD
-                                <input type="file" class="form-control" name="image" id="image"
-                                    placeholder="image" aria-describedby="inputGroupPrepend">
-=======
                                 <input type="file" class="form-control" name="image" id="image" placeholder="image"
                                     aria-describedby="inputGroupPrepend">
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom01">Telefone</label>
-<<<<<<< HEAD
-                            <input type="tel" class="form-control" id="nome" name="telefone"
-=======
                             <input type="tel" class="form-control" id="telefone" name="telefone"
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                                 placeholder="Digite um telefone" value="" required>
                             <div class="valid-feedback">
                                 Bom!
@@ -393,11 +268,7 @@
                         </div>
                         <div class="form-group col-md-3 mb-3">
                             <label class="label-cadastros" for="validationCustom02">Status</label>
-<<<<<<< HEAD
-                            <select class="custom-select" name="status" required>
-=======
                             <select class="custom-select" id="status" name="status" required>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
                                 <option value="">Nível de acesso</option>
                                 <option value="1">ADM</option>
                                 <option value="2">USER</option>
@@ -482,27 +353,15 @@
                         </div>
                     </div>
                     <div class="group-button">
-<<<<<<< HEAD
-                        <button type="button" id="fechar-modal" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button class="btn btn-info" type="submit">Salvar</button>
-                    </div>
-
-                </form>
-
-=======
                         <button type="button" id="fechar-modal" class="btn btn-secondary"
                             data-dismiss="modal">Fechar</button>
                         <button class="btn btn-info" type="submit">Salvar</button>
                     </div>
                 </form>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
             </div>
         </div>
     </div>
 </div>
-<<<<<<< HEAD
-
-=======
 <%-include('../partials/footer-system.ejs')%>
 <script>
     console.log('<%=msgCad%>')
@@ -547,7 +406,6 @@
     toastr.success(`Usuário Atualizado com sucesso!`, toastr.options)
     '<%}%>'
 </script>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
 <script>
     const btnMenu = document.querySelectorAll('.nav-link')
     const btnPeqGrupo = document.getElementById('menu-peq-grupo');
@@ -569,17 +427,6 @@
         })
     })
 
-<<<<<<< HEAD
-//     const testeModal = document.getElementById('btn-add-usuario')
-//     console.log(testeModal)         
-//     function abreModal() {
-//  $("#modal-add-usuario").modal({
-//       show: true
-//     });
-//  }
-
-// setTimeout(abreModal, 2);
-=======
     //     const testeModal = document.getElementById('btn-add-usuario')
     //     console.log(testeModal)         
     //     function abreModal() {
@@ -588,7 +435,6 @@
     //     });
     //  }
     // setTimeout(abreModal, 2);
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
 </script>
 
 <script>
@@ -630,9 +476,6 @@
 </script>
 
 <script>
-<<<<<<< HEAD
-  const cep = document.getElementById('cep');
-=======
     const editar = document.getElementsByClassName('editar-usuario')
     const formUsu = document.getElementById('form-usuario')
     const nomeUsu = document.getElementById('nomeUsu')
@@ -643,31 +486,10 @@
 
     const status = document.getElementById('status')
     const cep = document.getElementById('cep');
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
     const logradouro = document.getElementById('logradouro');
     const bairro = document.getElementById('bairro');
     const cidade = document.getElementById('cidade');
     const uf = document.getElementById('uf');
-<<<<<<< HEAD
-     const numero = document.getElementById('numero');
-   
-    async function buscarCep(cep) {
-                const apiCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-                const resposta = await apiCep.json();
-                return resposta
-            }
-         cep.addEventListener('change',async (e)=>{
-           const teste = await buscarCep(cep.value)
-            cep.value = teste.cep
-            logradouro.value = teste.logradouro
-            bairro.value = teste.bairro
-            cidade.value = teste.localidade
-            uf.value = teste.uf
-            numero.focus()
-         })
-</script>
-<%-include('../partials/footer-system.ejs')%>
-=======
     const numero = document.getElementById('numero');
     async function buscarCep(cep) {
         const apiCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
@@ -736,4 +558,3 @@
 </body>
 
 </html>
->>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
