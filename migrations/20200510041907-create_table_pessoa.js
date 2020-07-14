@@ -65,7 +65,7 @@ module.exports = {
       
       created_at: Sequelize.DATE,
       updated_at: Sequelize.DATE,
-      deleted_at: Sequelize.DATE,
+       deleted_at: Sequelize.DATE,
     });
 
   },
