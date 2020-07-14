@@ -28,8 +28,12 @@
     "nodemon": "^2.0.3",
     "pg": "^8.3.0",
     "pg-hstore": "^2.3.3",
+<<<<<<< HEAD
     "sequelize": "^5.21.7",
     "sequelize-cli": "^5.5.1"
+=======
+    "sequelize": "^5.21.7"
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
   },
   "devDependencies": {
     "sequelize-cli": "^5.5.1"

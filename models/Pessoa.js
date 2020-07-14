@@ -74,6 +74,7 @@ module.exports = (sequelize, DataTypes) => {
       Pessoa.hasOne(models.Usuario, {
         foreignKey: "pessoa_id",
         as: "usuario",
+       
       });
     };
 

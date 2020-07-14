@@ -6,6 +6,27 @@
 body * {
     margin: 0;
     padding: 0;
+      
+
+}
+body{
+    background: linear-gradient(45deg,orange,#56b4b8);
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    animation: colors 8s ease infinite;
+}
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 
 }
 
@@ -79,6 +100,7 @@ hr {
     width: 100%;
     display: flex;
     justify-content: space-around;
+  
 
 }
 
@@ -92,7 +114,7 @@ hr {
     margin-top: 80px;
     margin-left: 10px;
     box-shadow: 0px 0px 4px black;
-
+    background-color: white;
 }
 
 #menu nav div {
@@ -136,12 +158,13 @@ hr {
     padding-left: 15px;
     border: #75c2db solid 2px;
     display: flex;
-
+background-color: white;
 
 }
 
 #menu-sanduiche {
     display: none;
+    
 }
 
 #label-sanduiche {
@@ -151,6 +174,8 @@ hr {
 #painel-btn {
     margin: 30px;
 }
+
+
 
 @media (max-width: 800px) {
     #menu {
@@ -176,9 +201,11 @@ hr {
 
     #label-sanduiche i {
         font-size: 25px;
-        color: #75c2db
+        font-size: 25px;
+        color: white;
+        font-weight: bolder;
+      
     }
-
     input#menu-sanduiche:checked~#menu {
 
         transform: translateX(-0%);
@@ -383,8 +410,7 @@ div#v-pills-home .row {
 
 #tabelas tr td {
     /* border: 3px solid var(--color1); */
-   
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
     font-size: 20px;
 }
@@ -430,4 +456,8 @@ margin-left: 10px;
 }
 .acao span{
     width: 70px;
+}
+.table-overflow  {
+   max-height: 85vh;
+    overflow-y:auto;
 }

@@ -6,16 +6,32 @@ const Email = require('../../config/email');
 require('dotenv').config()
 const twtSecret = process.env.JWT_PASS 
 const textoEmails = require('../../helpers/textoEmail');
+<<<<<<< HEAD
+=======
+const { senha } = require('../pagesControllers');
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
 const usuarioApiController = {
     index: async (req,res) =>{
    if(Object.keys(req.params).length === 0 && Object.keys(req.query).length===0){
      try {
        const usuarios = await Usuario.findAll({
+<<<<<<< HEAD
+=======
+        attributes:[
+          'id','email','status','pessoa_id'
+        ],
+       order:[
+        [{model: Pessoa, as: 'pessoas'}, 'nome', 'ASC'],
+       ],  
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
        include:{
          association:'pessoas'
        }
       })
+<<<<<<< HEAD
      
+=======
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
        return res.status(200).json(usuarios)
      } catch (error) {
       return res.status(400).json(error)
@@ -23,6 +39,12 @@ const usuarioApiController = {
    }else if(Object.keys(req.params).length>0){
     try {
       const usuarios = await Usuario.findAll({
+<<<<<<< HEAD
+=======
+        attributes:[
+          'id','email','status','pessoa_id'
+        ],
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
         where:{
           id:req.params.id
         },
@@ -40,6 +62,12 @@ const usuarioApiController = {
 
     try {
        const usuarios = await Usuario.findAll({
+<<<<<<< HEAD
+=======
+        attributes:[
+          'id','email','status','pessoa_id'
+        ],
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
         where:{
           [fieldName]: {
             [Op.like]: `%${queryValue}%`
@@ -121,23 +149,69 @@ const usuarioApiController = {
           //Permite alterações enviando todas informações pelo body
           id = req.body.id;
           dados = req.body;
+<<<<<<< HEAD
          // dados.senha = bcrypt.hashSync(dados.senha,10)
       
         
+=======
+          dados.senha = bcrypt.hashSync(dados.senha,10)
+              
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
       } else if(Object.keys(req.query).length === 0) {
           //Permite alterações enviando id pelo endpoint e informações pelo body [/usuarios/:id]
           id = req.params.id;
           dados = req.body;
+<<<<<<< HEAD
          // dados.senha = bcrypt.hashSync(dados.senha,10)
+=======
+         dados.senha = bcrypt.hashSync(dados.senha,10)
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
       } else {
           //Permite alterações enviando id pelo endpoint e informações por query [/usuarios/:id?atributo=valorAtualizado]
           id = req.params.id;
           dados = req.query;
+<<<<<<< HEAD
          // dados.senha = bcrypt.hashSync(dados.senha,10)
       }
       try {
         await sequelize.transaction(async (t) => {
             await Usuario.update(dados, {
+=======
+         dados.senha = bcrypt.hashSync(dados.senha,10)
+      }
+
+       const usu = await Usuario.findByPk(id);
+    const  usuario = {
+        id,
+        email:dados.email,
+        senha:dados.senha,
+        status:dados.status
+      }
+
+    const pessoas = {
+      id:usu.pessoa_id,
+      nome:dados.nome,
+      data_nascimento:dados.data_nascimento,
+      sexo:dados.sexo,
+      telefone:dados.telefone,
+      image:dados.image,
+      cep:dados.cep,
+      logradouro:dados.logradouro,
+      numero:dados.numero,
+      complemento:dados.complemento,
+      bairro:dados.bairro,
+      cidade:dados.cidade,
+      uf:dados.uf
+          }
+          const usuPes = {
+            usuario,
+            pessoas
+          }
+
+      try {
+        await sequelize.transaction(async (t) => {
+           
+          await Pessoa.update(pessoas,{
                 where: {
                     id
                 },
@@ -145,9 +219,28 @@ const usuarioApiController = {
             });
             return;
         })
+        await sequelize.transaction(async (t) => {
+           
+          await Usuario.update(usuario,{
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
+                where: {
+                    id
+                },
+                transaction: t
+            });
+            return;
+        })
+<<<<<<< HEAD
       const result = await Usuario.findByPk(id);
     
            return res.status(200).json(result);
+=======
+
+        
+      //const result = await Usuario.findByPk(id);
+    
+           return res.status(200).json(usuPes);
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
         } catch (error) {
            return res.status(400).json(error);
         };
@@ -155,7 +248,10 @@ const usuarioApiController = {
    
    delete: async (req,res) =>{
     let id
+<<<<<<< HEAD
     
+=======
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
     if(Object.keys(req.params).length === 0) {
         //Permite deletar enviando id pelo body
         id = req.body.id;
@@ -171,17 +267,26 @@ const usuarioApiController = {
               },
               transaction: t
           });
+<<<<<<< HEAD
 
           return;
       })
 
       const result = await Usuario.findByPk(id, {paranoid:false});
 
+=======
+          return;
+      })
+      const result = await Usuario.findByPk(id, {paranoid:false});
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
       return res.status(200).json(result);
   } catch (error) {
       return res.status(400).json(error);
   };
+<<<<<<< HEAD
    
+=======
+>>>>>>> 1c6309f8e3940db76311e39e76adbd896cec6111
     },
 
   
